@@ -3,7 +3,7 @@ import PetriNetEditor from "./components/PetriNetEditor";
 
 function App() {
 	return (
-		<div className="h-full bg-gray-100">
+		<div className="h-svh bg-gray-100">
 			<Toaster />
 			<PetriNetEditor />
 		</div>
