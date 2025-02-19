@@ -1,0 +1,791 @@
+import { Excalidraw, MainMenu } from "@excalidraw/excalidraw";
+import type {
+	AppState,
+	ExcalidrawImperativeAPI,
+} from "@excalidraw/excalidraw/types/types";
+import React, { useEffect, useRef, useState } from "react";
+import { layoutGraph } from "../layoutService";
+import {
+	Edge,
+	Graph,
+	Node,
+	OperatorType,
+	WOPED_OPERATOR_TYPES,
+} from "../types";
+import { Sidebar } from "@excalidraw/excalidraw";
+import { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types";
+import { TokenGame } from "../TokenGame";
+import { calculateDotPositions } from "../utils/utils";
+
+const PetriNetEditor: React.FC = () => {
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState<string | null>(null);
+	const [excalidrawAPI, setExcalidrawAPI] =
+		useState<ExcalidrawImperativeAPI | null>(null);
+	const [layoutEngine, setLayoutEngine] = useState<"dagre" | "elk">("dagre");
+	const [currentGraph, setCurrentGraph] = useState<Graph | null>(null);
+	const [selectedNode, setSelectedNode] = useState<Node | null>(null);
+	const [selectedEdge, setSelectedEdge] = useState<Edge | null>(null);
+	const [tokenGame, setTokenGame] = useState<TokenGame | null>(null);
+	const [enabledTransitions, setEnabledTransitions] = useState<string[]>([]);
+	const [isGameActive, setIsGameActive] = useState(false);
+	const [selectedTransition, setSelectedTransition] = useState<string | null>(
+		null
+	);
+	const [transitionOptions, setTransitionOptions] = useState<{
+		requiresSelection: boolean;
+		availableOutputs?: Array<{ id: string; text: string }>;
+	}>({ requiresSelection: false });
+
+	const handleTransitionSelect = (transitionId: string) => {
+		if (!tokenGame) return;
+
+		const options = tokenGame.getTransitionOptions(transitionId);
+		setTransitionOptions(options);
+		setSelectedTransition(transitionId);
+
+		// Immediately fire the transition if it doesn't require output selection
+		if (!options.requiresSelection) {
+			console.log("Firing transition immediately:", transitionId); // Debug log
+			handleFireTransition(transitionId);
+		}
+	};
+
+	const handleFireTransition = (outputId: string) => {
+		console.log("Firing transition with output:", outputId); // Debug log
+
+		if (!tokenGame || !currentGraph || !excalidrawAPI) {
+			console.log("Missing required dependencies"); // Debug log
+			return;
+		}
+
+		// Get the transition ID - either from selectedTransition or the outputId for immediate firing
+		const transitionId = selectedTransition || outputId;
+		if (!transitionId) {
+			console.log("No transition ID available"); // Debug log
+			return;
+		}
+
+		// Fire the transition with or without output selection based on transition type
+		const newMarking = tokenGame.fireTransition(
+			transitionId,
+			transitionOptions.requiresSelection ? outputId : undefined
+		);
+
+		if (newMarking) {
+			console.log("New marking received:", newMarking); // Debug log
+
+			// Get current elements
+			const currentElements = excalidrawAPI.getSceneElements();
+
+			// Remove existing tokens
+			const elementsWithoutTokens = currentElements.filter(
+				(element) =>
+					!(element.type === "ellipse" && element.id.includes("-token-"))
+			);
+
+			// Create new token elements based on new marking
+			const newTokenElements: ExcalidrawElement[] = [];
+
+			currentGraph.nodes
+				.filter((node) => node.type === "place")
+				.forEach((place) => {
+					const tokens = newMarking.get(place.id) || 0;
+					const placeElement = elementsWithoutTokens.find(
+						(e) => e.id === place.id
+					);
+					if (placeElement) {
+						const tokenElements = createTokensForPlace(
+							place.id,
+							tokens,
+							placeElement
+						);
+						newTokenElements.push(...tokenElements);
+					}
+				});
+
+			// Update scene with new elements
+			excalidrawAPI.updateScene({
+				elements: [...elementsWithoutTokens, ...newTokenElements],
+			});
+
+			// Update state
+			setSelectedTransition(null);
+			setTransitionOptions({ requiresSelection: false });
+			setEnabledTransitions(tokenGame.getEnabledTransitions());
+
+			// Force a re-render
+			requestAnimationFrame(() => {
+				excalidrawAPI.refresh();
+			});
+		} else {
+			console.log("No new marking received from transition firing"); // Debug log
+		}
+	};
+	// Add this useEffect to keep enabled transitions in sync
+	useEffect(() => {
+		if (tokenGame && isGameActive) {
+			const updatedEnabledTransitions = tokenGame.getEnabledTransitions();
+			setEnabledTransitions(updatedEnabledTransitions);
+		}
+	}, [tokenGame, isGameActive]);
+
+	// Initialize token game when graph is loaded
+	useEffect(() => {
+		if (currentGraph) {
+			const game = new TokenGame(currentGraph);
+			setTokenGame(game);
+			setEnabledTransitions(game.getEnabledTransitions());
+		}
+	}, [currentGraph]);
+
+	const handleGameActiveToggle = () => {
+		const newGameActive = !isGameActive;
+		setIsGameActive(newGameActive);
+
+		if (newGameActive && tokenGame) {
+			// Reset game to initial state when starting
+			tokenGame.reset();
+			updateTokenDisplay();
+			// Reset state when starting game
+			setEnabledTransitions(tokenGame.getEnabledTransitions());
+		} else {
+			// Reset game to initial state when stopping
+			if (tokenGame) {
+				tokenGame.reset();
+				updateTokenDisplay();
+			}
+			// Clear state when stopping game
+			setEnabledTransitions([]);
+		}
+		// Clear selection state in both cases
+		setSelectedTransition(null);
+		setTransitionOptions({ requiresSelection: false });
+	};
+
+	// Add a helper function to update token display
+	const updateTokenDisplay = () => {
+		if (!tokenGame || !currentGraph || !excalidrawAPI) return;
+
+		const currentElements = excalidrawAPI.getSceneElements();
+
+		// Remove existing tokens
+		const elementsWithoutTokens = currentElements.filter(
+			(element) =>
+				!(element.type === "ellipse" && element.id.includes("-token-"))
+		);
+
+		// Create new token elements based on current marking
+		const newTokenElements: ExcalidrawElement[] = [];
+		const currentMarking = tokenGame.getCurrentMarking();
+
+		currentGraph.nodes
+			.filter((node) => node.type === "place")
+			.forEach((place) => {
+				const tokens = currentMarking.get(place.id) || 0;
+				const placeElement = elementsWithoutTokens.find(
+					(e) => e.id === place.id
+				);
+				if (placeElement) {
+					const tokenElements = createTokensForPlace(
+						place.id,
+						tokens,
+						placeElement
+					);
+					newTokenElements.push(...tokenElements);
+				}
+			});
+
+		// Update scene with new elements
+		excalidrawAPI.updateScene({
+			elements: [...elementsWithoutTokens, ...newTokenElements],
+		});
+
+		// Force a re-render
+		requestAnimationFrame(() => {
+			excalidrawAPI.refresh();
+		});
+	};
+
+	// Add this function to PetriNetEditor.tsx
+	const createTokensForPlace = (
+		placeId: string,
+		tokenCount: number,
+		placeElement: ExcalidrawElement
+	): ExcalidrawElement[] => {
+		const tokens: ExcalidrawElement[] = [];
+		const placeGroupId = `place-group-${placeId}`;
+		const tokenGroupId = `${placeId}-tokens`;
+
+		// Calculate center of the place
+		const centerX = placeElement.x + placeElement.width / 2;
+		const centerY = placeElement.y + placeElement.height / 2;
+
+		// Get token positions
+		const positions = calculateDotPositions(tokenCount);
+
+		// Create token elements
+		positions.forEach((pos, index) => {
+			tokens.push({
+				type: "ellipse",
+				id: `${placeId}-token-${index}`,
+				x: centerX + pos.x - 5, // -5 to center the 10px wide token
+				y: centerY + pos.y - 5, // -5 to center the 10px high token
+				width: 10,
+				height: 10,
+				angle: 0,
+				strokeColor: "#000000",
+				backgroundColor: "#000000",
+				fillStyle: "solid",
+				strokeWidth: 1,
+				strokeStyle: "solid",
+				roughness: 0,
+				opacity: 100,
+				groupIds: [placeGroupId, tokenGroupId],
+				roundness: { type: 3 },
+				seed: Math.floor(Math.random() * 100000),
+				version: 1,
+				versionNonce: Math.floor(Math.random() * 100000),
+				isDeleted: false,
+				boundElements: null,
+				updated: Date.now(),
+				link: null,
+				locked: true,
+				frameId: null,
+			});
+		});
+
+		return tokens;
+	};
+
+	// Update the handleResetGame function
+	const handleResetGame = () => {
+		if (!tokenGame || !currentGraph || !excalidrawAPI) return;
+
+		tokenGame.reset();
+		setEnabledTransitions(tokenGame.getEnabledTransitions());
+
+		// Get current elements
+		const currentElements = excalidrawAPI.getSceneElements();
+
+		// Remove existing tokens
+		const elementsWithoutTokens = currentElements.filter(
+			(element) =>
+				!(element.type === "ellipse" && element.id.includes("-token-"))
+		);
+
+		// Create new token elements based on initial marking
+		const newTokenElements: ExcalidrawElement[] = [];
+
+		currentGraph.nodes
+			.filter((node) => node.type === "place")
+			.forEach((place) => {
+				const tokens = place.tokens || 0;
+				const placeElement = elementsWithoutTokens.find(
+					(e) => e.id === place.id
+				);
+				if (placeElement) {
+					const tokenElements = createTokensForPlace(
+						place.id,
+						tokens,
+						placeElement
+					);
+					newTokenElements.push(...tokenElements);
+				}
+			});
+
+		// Update scene with new elements
+		excalidrawAPI.updateScene({
+			elements: [...elementsWithoutTokens, ...newTokenElements],
+		});
+	};
+
+	const lastSelectedIdRef = useRef<string | null>(null);
+
+	const handleChange = (
+		elements: readonly ExcalidrawElement[],
+		appState: AppState
+	) => {
+		if (!currentGraph) return;
+
+		const selectedElementId = Object.keys(appState.selectedElementIds)[0];
+		const baseId = selectedElementId?.match(/^([^-]+)/)?.[1];
+
+		if (baseId !== lastSelectedIdRef.current) {
+			lastSelectedIdRef.current = baseId!;
+
+			if (!baseId) {
+				setSelectedNode(null);
+				setSelectedEdge(null);
+				excalidrawAPI?.toggleSidebar({
+					name: "nodeinfo",
+					force: false,
+				});
+				return;
+			}
+
+			const node = currentGraph.nodes.find((n) => n.id === baseId);
+			const edge = currentGraph.edges.find((e) => e.id === selectedElementId);
+
+			if (node) {
+				setSelectedEdge(null);
+				setSelectedNode({
+					id: node.id,
+					type: node.type,
+					text: node.text,
+					tokens: node.type === "place" ? node.tokens : undefined,
+					gatewayType:
+						node.type === "transition" ? node.gatewayType : undefined,
+				});
+
+				requestAnimationFrame(() => {
+					excalidrawAPI?.toggleSidebar({
+						name: "nodeinfo",
+						force: true,
+					});
+				});
+			} else if (edge) {
+				setSelectedNode(null);
+				setSelectedEdge(edge);
+				requestAnimationFrame(() => {
+					excalidrawAPI?.toggleSidebar({
+						name: "nodeinfo",
+						force: true,
+					});
+				});
+			} else {
+				setSelectedNode(null);
+				setSelectedEdge(null);
+			}
+		}
+	};
+
+	useEffect(() => {
+		lastSelectedIdRef.current = null;
+		setSelectedNode(null);
+	}, [currentGraph]);
+
+	// Effect to rerender diagram when layout engine changes
+	useEffect(() => {
+		const updateLayout = async () => {
+			if (currentGraph && excalidrawAPI) {
+				setLoading(true);
+				try {
+					const layoutedElements = await layoutGraph(
+						currentGraph,
+						layoutEngine
+					);
+					// console.log(layoutedElements);
+					excalidrawAPI.updateScene({
+						elements: layoutedElements,
+					});
+
+					excalidrawAPI.scrollToContent();
+				} catch (err) {
+					setError(
+						err instanceof Error ? err.message : "Unknown error occurred"
+					);
+					console.error(err);
+				} finally {
+					setLoading(false);
+				}
+			}
+		};
+
+		updateLayout();
+	}, [layoutEngine, currentGraph, excalidrawAPI]);
+
+	// Update handleFileUpload to handle async layout
+	const handleFileUpload = async (
+		event: React.ChangeEvent<HTMLInputElement>
+	) => {
+		const file = event.target.files?.[0];
+		if (!file) return;
+
+		setLoading(true);
+		setError(null);
+
+		const reader = new FileReader();
+		reader.onload = async (e) => {
+			try {
+				const parser = new DOMParser();
+				const xmlDoc = parser.parseFromString(
+					e.target?.result as string,
+					"text/xml"
+				);
+
+				const parseError = xmlDoc.getElementsByTagName("parsererror");
+				if (parseError.length > 0) {
+					throw new Error("Invalid XML format");
+				}
+
+				const parsedNet = parsePNML(xmlDoc);
+				if (parsedNet && parsedNet.nodes && parsedNet.edges) {
+					setCurrentGraph(parsedNet);
+					const layoutedElements = await layoutGraph(parsedNet, layoutEngine);
+					if (excalidrawAPI) {
+						excalidrawAPI.updateScene({
+							elements: layoutedElements,
+						});
+						excalidrawAPI.scrollToContent();
+					}
+				} else {
+					throw new Error("Invalid PNML structure");
+				}
+			} catch (err) {
+				setError(err instanceof Error ? err.message : "Unknown error occurred");
+				console.error(err);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		reader.onerror = () => {
+			setError("Error reading file");
+			setLoading(false);
+		};
+
+		reader.readAsText(file);
+	};
+
+	const parsePNML = (xmlDoc: Document): Graph => {
+		if (!xmlDoc) return { nodes: [], edges: [] };
+
+		// Track gateways to merge transitions
+		const gateways: {
+			gatewayId: string;
+			transitionIds: string[];
+			type: OperatorType;
+			text: string;
+		}[] = [];
+
+		// First pass: Identify all gateway transitions and their relationships
+		const gatewayTransitions = new Map<string, string>(); // Map transition ID to gateway ID
+		Array.from(xmlDoc.getElementsByTagName("transition")).forEach((t) => {
+			const operatorElement = t.querySelector("toolspecific operator");
+			if (operatorElement) {
+				const transitionId = t.getAttribute("id") || "";
+				const gatewayId = operatorElement.getAttribute("id") || "";
+				const operatorType = operatorElement.getAttribute("type") || "";
+				const nameElement = t.querySelector("name text");
+
+				gatewayTransitions.set(transitionId, gatewayId);
+
+				// Track gateway for merging
+				const existingGateway = gateways.find((g) => g.gatewayId === gatewayId);
+				if (existingGateway) {
+					if (!existingGateway.transitionIds.includes(transitionId)) {
+						existingGateway.transitionIds.push(transitionId);
+					}
+				} else {
+					gateways.push({
+						gatewayId,
+						transitionIds: [transitionId],
+						type: operatorType as OperatorType, // Default to MIXED-split if type is unknown
+						text: nameElement?.textContent || gatewayId,
+					});
+				}
+			}
+		});
+
+		// Parse places
+		const places = Array.from(xmlDoc.getElementsByTagName("place"))
+			.map((p) => {
+				const id = p.getAttribute("id") || "";
+				const nameElement = p.querySelector("name text");
+				const initialMarkingElement = p.querySelector("initialMarking text");
+
+				return {
+					id: id,
+					type: "place" as const,
+					text: nameElement?.textContent || id || "Unnamed Place",
+					tokens: parseInt(initialMarkingElement?.textContent || "0", 10) || 0,
+				};
+			})
+			.filter((p) => p.id);
+
+		// Parse transitions
+		const transitions = Array.from(xmlDoc.getElementsByTagName("transition"))
+			.map((t) => {
+				const id = t.getAttribute("id") || "";
+				const nameElement = t.querySelector("name text");
+
+				// Skip transitions that are part of a gateway
+				if (gatewayTransitions.has(id)) {
+					return null;
+				}
+
+				return {
+					id: id,
+					type: "transition" as const,
+					text: nameElement?.textContent || id || "Unnamed Transition",
+				};
+			})
+			.filter((t): t is NonNullable<typeof t> => t !== null);
+
+		// Create gateway nodes
+		const gatewayNodes = gateways.map((g) => ({
+			id: g.gatewayId,
+			type: "transition" as const,
+			text: g.text,
+			isGateway: true,
+			gatewayType: g.type,
+		}));
+
+		// Process arcs with gateway merging
+		const arcsMap = new Map<
+			string,
+			{
+				id: string;
+				from: string;
+				to: string;
+				type: "arc";
+				weight: number;
+			}
+		>();
+
+		Array.from(xmlDoc.getElementsByTagName("arc")).forEach((a) => {
+			let from = a.getAttribute("source") || "";
+			let to = a.getAttribute("target") || "";
+
+			// Replace transition IDs with gateway IDs where applicable
+			if (gatewayTransitions.has(from)) {
+				from = gatewayTransitions.get(from)!;
+			}
+			if (gatewayTransitions.has(to)) {
+				to = gatewayTransitions.get(to)!;
+			}
+
+			// Create unique key for the arc to prevent duplicates
+			const arcKey = `${from}-${to}`;
+
+			if (!arcsMap.has(arcKey)) {
+				arcsMap.set(arcKey, {
+					id:
+						a.getAttribute("id") ||
+						`arc-${Math.random().toString(36).substr(2, 9)}`,
+					from,
+					to,
+					type: "arc" as const,
+					weight:
+						parseInt(
+							a.querySelector("inscription text")?.textContent || "1",
+							10
+						) || 1,
+				});
+			}
+		});
+
+		return {
+			nodes: [...places, ...transitions, ...gatewayNodes],
+			edges: Array.from(arcsMap.values()),
+		};
+	};
+
+	return (
+		<div className="bg-white rounded-lg shadow-lg h-full">
+			{loading && (
+				<div className="mb-4 p-3 bg-blue-50 text-blue-700 rounded-md flex items-center">
+					<svg className="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
+						<circle
+							className="opacity-25"
+							cx="12"
+							cy="12"
+							r="10"
+							stroke="currentColor"
+							strokeWidth="4"
+							fill="none"
+						/>
+						<path
+							className="opacity-75"
+							fill="currentColor"
+							d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+						/>
+					</svg>
+					Loading PNML file...
+				</div>
+			)}
+
+			{error && (
+				<div className="mb-4 p-3 bg-red-50 text-red-700 rounded-md">
+					Error: {error}
+				</div>
+			)}
+
+			<div className="h-[600px] min-h-screen border border-gray-200 rounded-lg overflow-hidden">
+				<Excalidraw
+					excalidrawAPI={(api) => setExcalidrawAPI(api)}
+					onChange={handleChange}
+					initialData={{
+						elements: [],
+						appState: {
+							viewBackgroundColor: "#ffffff",
+							currentItemStrokeWidth: 2,
+							currentItemRoughness: 0,
+							zoom: {
+								value: 1 as unknown as number & { _brand: "normalizedZoom" },
+							}, // Fix zoom type
+							scrollX: 0, // Add scroll configuration
+							scrollY: 0,
+							gridSize: 20, // Add grid configuration
+							zenModeEnabled: true, //
+						},
+					}}
+					UIOptions={{
+						canvasActions: {
+							changeViewBackgroundColor: false,
+							export: false,
+							loadScene: false,
+							saveToActiveFile: false,
+							saveAsImage: false,
+							toggleTheme: false, // Changed from theme to toggleTheme
+						},
+					}}
+				>
+					<MainMenu>
+						<MainMenu.ItemCustom>
+							<label className="text-nowrap">Layout Engine:</label>
+							<select
+								value={layoutEngine}
+								onChange={(e) =>
+									setLayoutEngine(e.target.value as "dagre" | "elk")
+								}
+							>
+								<option value="dagre">Dagre</option>
+								<option value="elk">ELK</option>
+							</select>
+						</MainMenu.ItemCustom>
+						<MainMenu.ItemCustom>
+							<input
+								type="file"
+								accept=".pnml,.xml"
+								onChange={handleFileUpload}
+							/>
+						</MainMenu.ItemCustom>
+						<MainMenu.ItemCustom>
+							<button
+								className={`px-4 py-2 rounded ${
+									isGameActive ? "bg-red-500" : "bg-green-500"
+								} text-white`}
+								onClick={handleGameActiveToggle}
+							>
+								{isGameActive ? "Stop Token Game" : "Start Token Game"}
+							</button>
+						</MainMenu.ItemCustom>
+						{isGameActive && (
+							<>
+								<MainMenu.ItemCustom>
+									<button
+										className="px-4 py-2 rounded bg-blue-500 text-white"
+										onClick={handleResetGame}
+									>
+										Reset
+									</button>
+								</MainMenu.ItemCustom>
+								<MainMenu.Separator />
+								<MainMenu.ItemCustom>
+									<div className="flex flex-col gap-2">
+										<span className="font-bold">Enabled Transitions:</span>
+										{enabledTransitions.map((transitionId) => {
+											const node = currentGraph?.nodes.find(
+												(n) => n.id === transitionId
+											);
+											const isSelected = selectedTransition === transitionId;
+											return (
+												<button
+													key={transitionId}
+													className={`px-4 py-2 rounded ${
+														isSelected ? "bg-blue-500" : "bg-green-500"
+													} text-white`}
+													onClick={() => handleTransitionSelect(transitionId)}
+												>
+													{node?.text || transitionId}
+													{node?.gatewayType &&
+														` (${WOPED_OPERATOR_TYPES[node.gatewayType]})`}
+												</button>
+											);
+										})}
+									</div>
+								</MainMenu.ItemCustom>
+
+								{selectedTransition && transitionOptions.requiresSelection && (
+									<MainMenu.ItemCustom>
+										<div className="flex flex-col gap-2">
+											<span className="font-bold">Select Output:</span>
+											{transitionOptions.availableOutputs?.map((output) => (
+												<button
+													key={output.id}
+													className="px-4 py-2 rounded bg-blue-500 text-white"
+													onClick={() => handleFireTransition(output.id)}
+												>
+													{output.text}
+												</button>
+											))}
+										</div>
+									</MainMenu.ItemCustom>
+								)}
+							</>
+						)}
+					</MainMenu>
+					<Sidebar name="nodeinfo" docked={true}>
+						<div className="p-4">
+							<h3 className="text-lg font-bold mb-4 capitalize">
+								{selectedNode?.type && selectedNode.type}
+								{selectedEdge?.type && selectedEdge.type}
+							</h3>
+							{selectedNode && (
+								<div className="space-y-3">
+									<div>
+										<label className="font-medium">ID:</label>
+										<div className="text-sm">{selectedNode?.id}</div>
+									</div>
+									<div>
+										<label className="font-medium">Label:</label>
+										<div className="text-sm">{selectedNode?.text}</div>
+									</div>
+									{selectedNode?.type === "place" && (
+										<div>
+											<label className="font-medium">Tokens:</label>
+											<div className="text-sm">{selectedNode?.tokens || 0}</div>
+										</div>
+									)}
+									{selectedNode?.type === "transition" &&
+										selectedNode.gatewayType && (
+											<div>
+												<label className="font-medium">Gateway Type:</label>
+												<div className="text-sm">
+													{WOPED_OPERATOR_TYPES[selectedNode.gatewayType]}
+												</div>
+											</div>
+										)}
+								</div>
+							)}
+							{selectedEdge && (
+								<div className="space-y-3">
+									<div>
+										<label className="font-medium">ID:</label>
+										<div className="text-sm">{selectedEdge.id}</div>
+									</div>
+									<div>
+										<label className="font-medium">From:</label>
+										<div className="text-sm">{selectedEdge.from}</div>
+									</div>
+									<div>
+										<label className="font-medium">To:</label>
+										<div className="text-sm">{selectedEdge.to}</div>
+									</div>
+									<div>
+										<label className="font-medium">Weight:</label>
+										<div className="text-sm">{selectedEdge.weight}</div>
+									</div>
+								</div>
+							)}
+						</div>
+					</Sidebar>
+				</Excalidraw>
+			</div>
+		</div>
+	);
+};
+
+export default PetriNetEditor;
