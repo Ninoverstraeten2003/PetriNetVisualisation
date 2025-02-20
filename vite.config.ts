@@ -1,14 +1,18 @@
+import MillionLint from "@million/lint";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
-import vercel from 'vite-plugin-vercel';
+import vercel from "vite-plugin-vercel";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [react(), vercel()],
-	optimizeDeps: {
-		exclude: ["lucide-react"],
-	},
+	plugins: [
+		MillionLint.vite({
+			enabled: true,
+		}),
+		react(),
+		vercel(),
+	],
 	define: {
 		// Add process.env for Excalidraw
 		"process.env": {
