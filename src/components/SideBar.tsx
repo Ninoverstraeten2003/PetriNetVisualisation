@@ -4,7 +4,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Sidebar } from "@excalidraw/excalidraw";
 import { ArrowRight, Pin, PinOff } from "lucide-react";
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { Edge, Graph, Node } from "../types";
 import { EdgeInfo } from "./EdgeInfo";
 import { NodeInfo } from "./NodeInfo";
@@ -25,30 +25,56 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 }) => {
 	const [isDocked, setIsDocked] = useState(true);
 
-	const getTransitionConnections = (transitionId: string) => {
-		if (!currentGraph) return { inputPlaces: [], outputPlaces: [] };
+	const toggleIsDocked = useCallback(() => {
+		setIsDocked((prev) => !prev);
+	}, []);
 
-		const inputPlaces = currentGraph.edges
-			.filter((edge) => edge.to === transitionId)
-			.map((edge) => currentGraph.nodes.find((node) => node.id === edge.from))
-			.filter(
-				(node): node is Node => node !== undefined && node.type === "place"
-			);
+	const getTransitionConnections = useCallback(
+		(transitionId: string) => {
+			if (!currentGraph) return { inputPlaces: [], outputPlaces: [] };
 
-		const outputPlaces = currentGraph.edges
-			.filter((edge) => edge.from === transitionId)
-			.map((edge) => currentGraph.nodes.find((node) => node.id === edge.to))
-			.filter(
-				(node): node is Node => node !== undefined && node.type === "place"
-			);
+			const inputPlaces = currentGraph.edges
+				.filter((edge) => edge.to === transitionId)
+				.map((edge) => currentGraph.nodes.find((node) => node.id === edge.from))
+				.filter(
+					(node): node is Node => node !== undefined && node.type === "place"
+				);
 
-		return { inputPlaces, outputPlaces };
-	};
-	const enabledTransitionNodes =
-		currentGraph?.nodes.filter(
-			(node) =>
-				node.type === "transition" && enabledTransitions.includes(node.id)
-		) || [];
+			const outputPlaces = currentGraph.edges
+				.filter((edge) => edge.from === transitionId)
+				.map((edge) => currentGraph.nodes.find((node) => node.id === edge.to))
+				.filter(
+					(node): node is Node => node !== undefined && node.type === "place"
+				);
+
+			return { inputPlaces, outputPlaces };
+		},
+		[currentGraph]
+	);
+
+	const enabledTransitionNodes = useMemo(
+		() =>
+			currentGraph?.nodes.filter(
+				(node) =>
+					node.type === "transition" && enabledTransitions.includes(node.id)
+			) || [],
+		[currentGraph, enabledTransitions]
+	);
+
+	const selectedPlaces = useMemo(
+		() => selectedNodes.filter((node) => node.type === "place"),
+		[selectedNodes]
+	);
+
+	const selectedTransitions = useMemo(
+		() => selectedNodes.filter((node) => node.type === "transition"),
+		[selectedNodes]
+	);
+
+	const MemoizedArrowRight = useMemo(
+		() => <ArrowRight className="h-4 w-4" />,
+		[]
+	);
 
 	return (
 		<Sidebar name="nodeinfo" docked={isDocked}>
@@ -59,7 +85,7 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 						<Button
 							variant="ghost"
 							size="icon"
-							onClick={() => setIsDocked(!isDocked)}
+							onClick={toggleIsDocked}
 							className="h-6 w-6"
 						>
 							{isDocked ? <PinOff size={14} /> : <Pin size={14} />}
@@ -96,7 +122,7 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 
 												<div className="flex flex-col items-center gap-1">
 													<NodeInfo node={transition} />
-													<ArrowRight className="h-4 w-4" />
+													{MemoizedArrowRight}
 												</div>
 
 												<div className="space-y-2">
@@ -129,16 +155,13 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 							<TabsTrigger value="places" className="px-1 w-full">
 								Places{" "}
 								<Badge variant="outline" className="ml-1">
-									{selectedNodes.filter((node) => node.type === "place").length}
+									{selectedPlaces.length}
 								</Badge>
 							</TabsTrigger>
 							<TabsTrigger value="transitions" className="px-1 w-full">
 								Transitions{" "}
 								<Badge variant="outline" className="ml-1 w-full">
-									{
-										selectedNodes.filter((node) => node.type === "transition")
-											.length
-									}
+									{selectedTransitions.length}
 								</Badge>
 							</TabsTrigger>
 							<TabsTrigger value="edges" className="px-1 w-full">
@@ -150,18 +173,15 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 						</TabsList>
 						<TabsContent value="places" className="m-0 flex">
 							<ScrollArea className="h-[calc(20svh)]  w-1 flex-1" type="always">
-								{selectedNodes
-									.filter((node) => node.type === "place")
-									.map((node) => (
-										<div
-											key={node.id}
-											className="p-2 border-b last:border-b-0 border-b-muted-foreground"
-										>
-											<NodeInfo node={node} />
-										</div>
-									))}
-								{selectedNodes.filter((node) => node.type === "place")
-									.length === 0 && (
+								{selectedPlaces.map((node) => (
+									<div
+										key={node.id}
+										className="p-2 border-b last:border-b-0 border-b-muted-foreground"
+									>
+										<NodeInfo node={node} />
+									</div>
+								))}
+								{selectedPlaces.length === 0 && (
 									<p className="text-muted-foreground text-sm p-2">
 										No places selected
 									</p>
@@ -171,18 +191,15 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 						</TabsContent>
 						<TabsContent value="transitions" className="m-0 flex">
 							<ScrollArea className="h-[calc(20svh)] w-1 flex-1" type="always">
-								{selectedNodes
-									.filter((node) => node.type === "transition")
-									.map((node) => (
-										<div
-											key={node.id}
-											className="p-2 border-b last:border-b-0 border-b-muted-foreground"
-										>
-											<NodeInfo node={node} />
-										</div>
-									))}
-								{selectedNodes.filter((node) => node.type === "transition")
-									.length === 0 && (
+								{selectedTransitions.map((node) => (
+									<div
+										key={node.id}
+										className="p-2 border-b last:border-b-0 border-b-muted-foreground"
+									>
+										<NodeInfo node={node} />
+									</div>
+								))}
+								{selectedTransitions.length === 0 && (
 									<p className="text-muted-foreground text-sm p-2">
 										No transitions selected
 									</p>

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import { useMemo } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -49,13 +50,18 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-	({ className, variant, size, asChild = false, ...props }, ref) => {
+	({ className, variant, size, asChild = false, onClick, ...rest }, ref) => {
 		const Comp = asChild ? Slot : "button";
+		const buttonClass = useMemo(
+			() => cn(buttonVariants({ variant, size, className })),
+			[variant, size, className]
+		);
 		return (
 			<Comp
-				className={cn(buttonVariants({ variant, size, className }))}
+				className={buttonClass}
 				ref={ref}
-				{...props}
+				onClick={onClick}
+				{...rest}
 			/>
 		);
 	}

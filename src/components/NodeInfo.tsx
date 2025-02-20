@@ -1,8 +1,8 @@
-import type React from "react";
+import React, { memo } from "react";
 import { type Node, WOPED_OPERATOR_TYPES } from "@/types";
 import { Badge } from "@/components/ui/badge";
 
-export const NodeInfo: React.FC<{ node: Node }> = ({ node }) => (
+export const NodeInfo: React.FC<{ node: Node }> = memo(({ node }) => (
 	<div className="text-sm">
 		<div className="font-medium">{node.text}</div>
 		<div className="text-muted-foreground text-xs truncate">ID: {node.id}</div>
@@ -23,4 +23,4 @@ export const NodeInfo: React.FC<{ node: Node }> = ({ node }) => (
 			</div>
 		)}
 	</div>
-);
+));

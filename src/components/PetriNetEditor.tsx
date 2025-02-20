@@ -1,12 +1,17 @@
 import { Excalidraw, WelcomeScreen } from "@excalidraw/excalidraw";
-import type { ExcalidrawImperativeAPI } from "@excalidraw/excalidraw/types/types";
-import React, { useState } from "react";
+import type {
+	AppState,
+	ExcalidrawImperativeAPI,
+	UIOptions,
+} from "@excalidraw/excalidraw/types/types";
+import React, { useState, useMemo, useCallback, ChangeEvent } from "react";
 import { useFileUpload } from "../hooks/useFileUpload";
 import { usePetriNetEditor } from "../hooks/usePetriNetEditor";
 import { useTokenGame } from "../hooks/useTokenGame";
 import { MainMenuComponent } from "./MainMenu";
 import { SidebarComponent } from "./SideBar";
 import { TokenGameController } from "./TokenGameController";
+import { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types";
 
 const PetriNetEditor: React.FC = () => {
 	const [excalidrawAPI, setExcalidrawAPI] =
@@ -41,38 +46,103 @@ const PetriNetEditor: React.FC = () => {
 		setCurrentGraph
 	);
 
+	const stableSetExcalidrawAPI = useCallback(
+		(api: ExcalidrawImperativeAPI) => {
+			setExcalidrawAPI(api);
+		},
+		[setExcalidrawAPI]
+	);
+
+	const stableHandleFileUpload = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			if (event.target.files && event.target.files[0]) {
+				handleFileUpload(event);
+			}
+		},
+		[handleFileUpload]
+	);
+
+	const stableHandleFireTransition = useCallback(
+		(outputId: string) => {
+			handleFireTransition(outputId);
+		},
+		[handleFireTransition]
+	);
+
+	const stableHandleGameActiveToggle = useCallback(() => {
+		handleGameActiveToggle();
+	}, [handleGameActiveToggle]);
+
+	const stableHandleResetGame = useCallback(() => {
+		handleResetGame();
+	}, [handleResetGame]);
+
+	const memoizedSelectedNodes = useMemo(() => selectedNodes, [selectedNodes]);
+	const memoizedSelectedEdges = useMemo(() => selectedEdges, [selectedEdges]);
+
+	const stableOnFireTransition = useCallback(
+		(outputId: string) => handleFireTransition(outputId),
+		[handleFireTransition]
+	);
+
+	const memoizedUIOptions = useMemo<UIOptions>(
+		() => ({
+			canvasActions: {
+				changeViewBackgroundColor: false,
+				export: false,
+				loadScene: false,
+				saveToActiveFile: false,
+				saveAsImage: false,
+				toggleTheme: false,
+			},
+		}),
+		[]
+	);
+
+	const memoizedInitialData = useMemo(
+		() => ({
+			elements: [],
+			appState: {
+				viewBackgroundColor: "#ffffff",
+				currentItemStrokeWidth: 2,
+				currentItemRoughness: 0,
+				zoom: {
+					value: 1 as unknown as number & { _brand: "normalizedZoom" },
+				},
+				scrollX: 0,
+				scrollY: 0,
+				gridSize: 20,
+			},
+		}),
+		[]
+	);
+
+	const stableOnChange = useCallback(
+		(elements: readonly ExcalidrawElement[], appState: AppState) => {
+			handleChange(elements, appState);
+		},
+		[handleChange]
+	);
+
+	// Memoize the props to ensure they are stable across renders
+	const memoizedCurrentGraph = useMemo(() => currentGraph, [currentGraph]);
+	const memoizedEnabledTransitions = useMemo(
+		() => enabledTransitions,
+		[enabledTransitions]
+	);
+	const memoizedTransitionOptionsProp = useMemo(
+		() => transitionOptions,
+		[transitionOptions]
+	);
+
 	return (
 		<Excalidraw
-			excalidrawAPI={(api) => setExcalidrawAPI(api)}
-			onChange={(elements, appState) => {
-				handleChange(elements, appState);
-			}}
+			excalidrawAPI={stableSetExcalidrawAPI}
+			onChange={stableOnChange}
 			zenModeEnabled={false}
 			viewModeEnabled={false}
-			initialData={{
-				elements: [],
-				appState: {
-					viewBackgroundColor: "#ffffff",
-					currentItemStrokeWidth: 2,
-					currentItemRoughness: 0,
-					zoom: {
-						value: 1 as unknown as number & { _brand: "normalizedZoom" },
-					},
-					scrollX: 0,
-					scrollY: 0,
-					gridSize: 20,
-				},
-			}}
-			UIOptions={{
-				canvasActions: {
-					changeViewBackgroundColor: false,
-					export: false,
-					loadScene: false,
-					saveToActiveFile: false,
-					saveAsImage: false,
-					toggleTheme: false,
-				},
-			}}
+			initialData={memoizedInitialData}
+			UIOptions={memoizedUIOptions}
 		>
 			<WelcomeScreen>
 				<WelcomeScreen.Hints.MenuHint>
@@ -82,35 +152,35 @@ const PetriNetEditor: React.FC = () => {
 			<MainMenuComponent
 				layoutEngine={layoutEngine}
 				setLayoutEngine={setLayoutEngine}
-				handleFileUpload={handleFileUpload}
+				handleFileUpload={stableHandleFileUpload}
 				isGameActive={isGameActive}
-				handleGameActiveToggle={handleGameActiveToggle}
-				handleResetGame={handleResetGame}
-				currentGraph={currentGraph}
-				enabledTransitions={enabledTransitions}
+				handleGameActiveToggle={stableHandleGameActiveToggle}
+				handleResetGame={stableHandleResetGame}
+				currentGraph={memoizedCurrentGraph}
+				enabledTransitions={memoizedEnabledTransitions}
 				selectedTransition={selectedTransition}
-				transitionOptions={transitionOptions}
+				transitionOptions={memoizedTransitionOptionsProp}
 				onTransitionSelect={handleTransitionSelect}
-				onFireTransition={handleFireTransition}
+				onFireTransition={stableOnFireTransition}
 				hasGraphData={hasGraphData}
 			>
 				{isGameActive && (
 					<TokenGameController
-						currentGraph={currentGraph}
-						enabledTransitions={enabledTransitions}
+						currentGraph={memoizedCurrentGraph}
+						enabledTransitions={memoizedEnabledTransitions}
 						selectedTransition={selectedTransition}
-						transitionOptions={transitionOptions}
+						transitionOptions={memoizedTransitionOptionsProp}
 						onTransitionSelect={handleTransitionSelect}
-						onFireTransition={handleFireTransition}
+						onFireTransition={stableHandleFireTransition}
 					/>
 				)}
 			</MainMenuComponent>
 
 			<SidebarComponent
-				currentGraph={currentGraph}
-				enabledTransitions={enabledTransitions}
-				selectedNodes={selectedNodes}
-				selectedEdges={selectedEdges}
+				currentGraph={memoizedCurrentGraph}
+				enabledTransitions={memoizedEnabledTransitions}
+				selectedNodes={memoizedSelectedNodes}
+				selectedEdges={memoizedSelectedEdges}
 			/>
 		</Excalidraw>
 	);
