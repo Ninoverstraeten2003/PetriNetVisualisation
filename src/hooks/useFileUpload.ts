@@ -56,8 +56,9 @@ export const useFileUpload = (
 			}
 		};
 
-		reader.onerror = () => {
+		reader.onerror = (err) => {
 			toast.error("Something went wrong", { icon: "❌" });
+			console.error(err);
 		};
 
 		reader.readAsText(file);

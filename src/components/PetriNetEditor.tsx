@@ -12,7 +12,7 @@ const PetriNetEditor: React.FC = () => {
 	const [excalidrawAPI, setExcalidrawAPI] =
 		useState<ExcalidrawImperativeAPI | null>(null);
 	const [layoutEngine, setLayoutEngine] = useState<"dagre" | "elk" | "webcola">(
-		"dagre"
+		"elk"
 	);
 
 	const {
@@ -47,7 +47,7 @@ const PetriNetEditor: React.FC = () => {
 			onChange={(elements, appState) => {
 				handleChange(elements, appState);
 			}}
-			zenModeEnabled={true}
+			zenModeEnabled={false}
 			viewModeEnabled={false}
 			initialData={{
 				elements: [],

@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Sidebar } from "@excalidraw/excalidraw";
 import { ArrowRight, Pin, PinOff } from "lucide-react";
@@ -76,15 +76,16 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 								</Badge>
 							</CardTitle>
 						</CardHeader>
-						<CardContent className="p-0 border-b">
-							<ScrollArea className="h-[calc(40svh)]">
+						{/*https://stackoverflow.com/a/78690553*/}
+						<CardContent className="p-0 flex border-b">
+							<ScrollArea className="h-[calc(40svh)] w-1 flex-1" type="always">
 								{enabledTransitionNodes.map((transition) => {
 									const { inputPlaces, outputPlaces } =
 										getTransitionConnections(transition.id);
 									return (
 										<div
 											key={transition.id}
-											className="p-2 border-b last:border-b-0"
+											className="p-2 border-b last:border-b-0 border-b-muted-foreground"
 										>
 											<div className="flex gap-3 justify-between items-center">
 												<div className="space-y-2">
@@ -107,6 +108,7 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 										</div>
 									);
 								})}
+								<ScrollBar orientation="horizontal" className="w-full" />
 							</ScrollArea>
 						</CardContent>
 					</>
@@ -146,12 +148,15 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 								</Badge>
 							</TabsTrigger>
 						</TabsList>
-						<TabsContent value="places" className="m-0">
-							<ScrollArea className="h-[calc(20svh)]">
+						<TabsContent value="places" className="m-0 flex">
+							<ScrollArea className="h-[calc(20svh)]  w-1 flex-1" type="always">
 								{selectedNodes
 									.filter((node) => node.type === "place")
 									.map((node) => (
-										<div key={node.id} className="p-2 border-b last:border-b-0">
+										<div
+											key={node.id}
+											className="p-2 border-b last:border-b-0 border-b-muted-foreground"
+										>
 											<NodeInfo node={node} />
 										</div>
 									))}
@@ -161,14 +166,18 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 										No places selected
 									</p>
 								)}
+								<ScrollBar orientation="horizontal" className="w-full" />
 							</ScrollArea>
 						</TabsContent>
-						<TabsContent value="transitions" className="m-0">
-							<ScrollArea className="h-[calc(20svh)]">
+						<TabsContent value="transitions" className="m-0 flex">
+							<ScrollArea className="h-[calc(20svh)] w-1 flex-1" type="always">
 								{selectedNodes
 									.filter((node) => node.type === "transition")
 									.map((node) => (
-										<div key={node.id} className="p-2 border-b last:border-b-0">
+										<div
+											key={node.id}
+											className="p-2 border-b last:border-b-0 border-b-muted-foreground"
+										>
 											<NodeInfo node={node} />
 										</div>
 									))}
@@ -178,12 +187,16 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 										No transitions selected
 									</p>
 								)}
+								<ScrollBar orientation="horizontal" className="w-full" />
 							</ScrollArea>
 						</TabsContent>
-						<TabsContent value="edges" className="m-0">
-							<ScrollArea className="h-[calc(20svh)]">
+						<TabsContent value="edges" className="m-0 flex">
+							<ScrollArea className="h-[calc(20svh)] w-1 flex-1" type="always">
 								{selectedEdges.map((edge) => (
-									<div key={edge.id} className="p-2 border-b last:border-b-0">
+									<div
+										key={edge.id}
+										className="p-2 border-b last:border-b-0 border-b-muted-foreground"
+									>
 										<EdgeInfo edge={edge} />
 									</div>
 								))}
@@ -192,6 +205,7 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 										No edges selected
 									</p>
 								)}
+								<ScrollBar orientation="horizontal" className="w-full" />
 							</ScrollArea>
 						</TabsContent>
 					</Tabs>

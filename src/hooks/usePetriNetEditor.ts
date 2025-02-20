@@ -85,7 +85,7 @@ export const usePetriNetEditor = (
 			if (baseId) {
 				const node = currentGraph.nodes.find((n) => n.id === baseId);
 				const edge = currentGraph.edges.find((e) => e.id === selectedElementId);
-
+				excalidrawAPI.getSceneElements();
 				if (node && !newSelectedNodes.some((n) => n.id === node.id)) {
 					newSelectedNodes.push(node);
 				} else if (edge && !newSelectedEdges.some((e) => e.id === edge.id)) {

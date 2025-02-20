@@ -4,7 +4,7 @@ import PetriNetEditor from "./components/PetriNetEditor";
 function App() {
 	return (
 		<div className="h-dvh">
-			<Toaster position="top-center" />
+			<Toaster position="bottom-right" />
 			<PetriNetEditor />
 		</div>
 	);

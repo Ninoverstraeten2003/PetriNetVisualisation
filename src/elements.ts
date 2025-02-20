@@ -5,6 +5,7 @@ import type {
 	ExcalidrawTextElement,
 } from "@excalidraw/excalidraw/types/element/types";
 import {
+	Edge,
 	GatewayType,
 	Graph,
 	LayoutGraph,
@@ -124,6 +125,7 @@ export const createArrowElement = ({
 	toId,
 	groupIds,
 	hasWeight,
+	customData
 }: {
 	id: string;
 	startX: number;
@@ -135,6 +137,7 @@ export const createArrowElement = ({
 	toId: string;
 	groupIds: string[];
 	hasWeight: boolean;
+	customData?: Edge;
 }): ExcalidrawElement => {
 	// Convert all points to relative coordinates
 	const points: [number, number][] = [[0, 0]];
@@ -189,6 +192,7 @@ export const createArrowElement = ({
 		startArrowhead: null,
 		endArrowhead: "arrow",
 		frameId: null,
+		customData: customData
 	};
 };
 export const createWeightLabel = ({
