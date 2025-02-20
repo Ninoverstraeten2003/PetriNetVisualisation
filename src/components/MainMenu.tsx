@@ -52,12 +52,12 @@ export const MainMenuComponent: React.FC<MainMenuProps> = ({
 	};
 	return (
 		<MainMenu onSelect={(event) => event.preventDefault()}>
-			<MainMenu.ItemCustom className="mt-0!">
+			<MainMenu.ItemCustom className="mt-0">
 				<div
 					onClick={(e) => e.stopPropagation()}
 					onPointerDown={(e) => e.stopPropagation()}
 					onMouseDown={(e) => e.stopPropagation()}
-					className="w-full"
+					className={`w-full ${isGameActive ? "hidden" : "visible"}`}
 				>
 					<Select
 						defaultValue={layoutEngine}
@@ -78,19 +78,20 @@ export const MainMenuComponent: React.FC<MainMenuProps> = ({
 				</div>
 			</MainMenu.ItemCustom>
 			<MainMenu.ItemCustom>
-				<div className="grid w-full items-center gap-1.5">
+				<div className="grid w-full items-center gap-1 mt-1">
 					<Input
 						id="picture"
 						type="file"
 						accept=".pnml,.xml"
 						onChange={handleFileUpload}
-						className="w-full"
+						className={`w-full ${isGameActive ? "hidden" : "visible"}`}
 						disabled={isGameActive}
 					/>
 					<Button
 						onClick={handleButtonClick}
 						variant={"outline"}
 						disabled={isGameActive}
+						className={`w-full ${isGameActive ? "hidden" : "visible"}`}
 					>
 						Example file
 					</Button>
@@ -100,7 +101,7 @@ export const MainMenuComponent: React.FC<MainMenuProps> = ({
 				<Button
 					variant="outline"
 					onClick={handleGameActiveToggle}
-					className="w-full"
+					className="w-full mt-1"
 					disabled={!hasGraphData}
 				>
 					{isGameActive ? "Stop Token Game 🏁" : "Start Token Game ⭐"}
@@ -111,7 +112,7 @@ export const MainMenuComponent: React.FC<MainMenuProps> = ({
 					<Button
 						variant="outline"
 						onClick={handleResetGame}
-						className="w-full"
+						className="w-full mt-1"
 					>
 						Reset
 					</Button>

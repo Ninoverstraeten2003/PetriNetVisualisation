@@ -71,3 +71,17 @@
 .excalidraw .help-icon {
 	display: none !important;
 }
+
+.excalidraw .dropdown-menu .dropdown-menu-item-custom {
+	margin-top: 0rem;
+}
+
+.excalidraw .App-bottom-bar > .Island {
+	width: 50%;
+	max-width: 50%;
+	min-width: 50%;
+}
+
+.excalidraw .dropdown-menu .dropdown-menu-container {
+	--gap: 0;
+}

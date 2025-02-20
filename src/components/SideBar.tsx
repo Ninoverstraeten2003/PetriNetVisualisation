@@ -77,7 +77,7 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 							</CardTitle>
 						</CardHeader>
 						<CardContent className="p-0 border-b">
-							<ScrollArea className="h-[calc(40vh)]">
+							<ScrollArea className="h-[calc(40svh)]">
 								{enabledTransitionNodes.map((transition) => {
 									const { inputPlaces, outputPlaces } =
 										getTransitionConnections(transition.id);
@@ -121,7 +121,7 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 						</div>
 					</CardTitle>
 				</CardHeader>
-				<CardContent className="p-0">
+				<CardContent className="p-0 border-b">
 					<Tabs defaultValue="places" className="w-full">
 						<TabsList className="w-full flex justify-center">
 							<TabsTrigger value="places" className="px-1 w-full">
@@ -147,7 +147,7 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 							</TabsTrigger>
 						</TabsList>
 						<TabsContent value="places" className="m-0">
-							<ScrollArea className="h-[calc(60vh-200px)]">
+							<ScrollArea className="h-[calc(20svh)]">
 								{selectedNodes
 									.filter((node) => node.type === "place")
 									.map((node) => (
@@ -164,7 +164,7 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 							</ScrollArea>
 						</TabsContent>
 						<TabsContent value="transitions" className="m-0">
-							<ScrollArea className="h-[calc(60vh-200px)]">
+							<ScrollArea className="h-[calc(20svh)]">
 								{selectedNodes
 									.filter((node) => node.type === "transition")
 									.map((node) => (
@@ -181,7 +181,7 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 							</ScrollArea>
 						</TabsContent>
 						<TabsContent value="edges" className="m-0">
-							<ScrollArea className="h-[calc(60vh-200px)]">
+							<ScrollArea className="h-[calc(20svh)]">
 								{selectedEdges.map((edge) => (
 									<div key={edge.id} className="p-2 border-b last:border-b-0">
 										<EdgeInfo edge={edge} />

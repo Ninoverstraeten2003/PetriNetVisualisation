@@ -27,7 +27,7 @@ export const TokenGameController: React.FC<TokenGameControllerProps> = ({
 	return (
 		<>
 			<MainMenu.ItemCustom>
-				<div className="flex flex-col gap-1 w-full">
+				<div className="flex flex-col gap-1 w-full mt-1">
 					<span className="font-bold">Enabled Transitions</span>
 					<TransitionList
 						enabledTransitions={enabledTransitions}
@@ -86,7 +86,7 @@ const OutputSelector: React.FC<{
 	onSelect: (id: string) => void;
 }> = ({ outputs, onSelect }) => (
 	<MainMenu.ItemCustom>
-		<div className="flex flex-col gap-1 w-full">
+		<div className="flex flex-col gap-1 w-full mt-1">
 			<span className="font-bold">Select Output</span>
 			{outputs.map((output) => (
 				<Button
