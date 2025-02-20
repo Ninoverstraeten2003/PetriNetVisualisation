@@ -73,15 +73,15 @@
 }
 
 .excalidraw .dropdown-menu .dropdown-menu-item-custom {
-	margin-top: 0rem;
+	margin-top: 0rem !important;
 }
 
 .excalidraw .App-bottom-bar > .Island {
-	width: 50%;
-	max-width: 50%;
-	min-width: 50%;
+	width: 50% !important;
+	max-width: 50% !important;
+	min-width: 50% !important;
 }
 
 .excalidraw .dropdown-menu .dropdown-menu-container {
-	--gap: 0;
+	--gap: 0 !important;
 }
