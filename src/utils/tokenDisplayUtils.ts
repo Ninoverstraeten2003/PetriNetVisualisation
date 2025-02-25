@@ -7,8 +7,9 @@ import { createTokenElement } from "../elements";
 export const updateTokenDisplay = (
 	marking: Map<string, number>,
 	graph: Graph,
-	excalidrawAPI: ExcalidrawImperativeAPI
+	excalidrawAPI: ExcalidrawImperativeAPI | null
 ) => {
+	if (!excalidrawAPI) return;
 	const currentElements = excalidrawAPI.getSceneElements();
 
 	// Remove existing tokens

@@ -1,14 +1,16 @@
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Sidebar } from "@excalidraw/excalidraw";
-import { ArrowRight, Pin, PinOff } from "lucide-react";
-import React, { useState, useCallback, useMemo } from "react";
+import { ArrowRight } from "lucide-react";
+import React, { useCallback, useMemo } from "react";
 import { Edge, Graph, Node } from "../types";
 import { EdgeInfo } from "./EdgeInfo";
 import { NodeInfo } from "./NodeInfo";
-import { Button } from "./ui/button";
+import {
+	ResizableHandle,
+	ResizablePanel,
+	ResizablePanelGroup,
+} from "./ui/resizable";
+import { SidebarGroupLabel } from "./ui/sidebar";
 
 interface SidebarComponentProps {
 	currentGraph: Graph | null;
@@ -23,12 +25,6 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 	selectedNodes,
 	selectedEdges,
 }) => {
-	const [isDocked, setIsDocked] = useState(true);
-
-	const toggleIsDocked = useCallback(() => {
-		setIsDocked((prev) => !prev);
-	}, []);
-
 	const getTransitionConnections = useCallback(
 		(transitionId: string) => {
 			if (!currentGraph) return { inputPlaces: [], outputPlaces: [] };
@@ -77,102 +73,97 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 	);
 
 	return (
-		<Sidebar name="nodeinfo" docked={isDocked}>
-			<Card className="h-full border-r rounded-none">
-				<CardHeader className="p-3 border-b">
-					<CardTitle className="text-base font-medium flex items-center justify-between">
-						Information
-						<Button
-							variant="ghost"
-							size="icon"
-							onClick={toggleIsDocked}
-							className="h-6 w-6"
-						>
-							{isDocked ? <PinOff size={14} /> : <Pin size={14} />}
-						</Button>
-					</CardTitle>
-				</CardHeader>
-				{enabledTransitions.length > 0 && (
-					<>
-						<CardHeader className="p-3 border-b">
-							<CardTitle className="text-sm font-medium flex items-center justify-between">
-								Enabled Transitions
-								<Badge variant="secondary" className="text-xs">
-									{enabledTransitions.length}
-								</Badge>
-							</CardTitle>
-						</CardHeader>
-						{/*https://stackoverflow.com/a/78690553*/}
-						<CardContent className="p-0 flex border-b">
-							<ScrollArea className="h-[calc(40svh)] w-1 flex-1" type="always">
-								{enabledTransitionNodes.map((transition) => {
-									const { inputPlaces, outputPlaces } =
-										getTransitionConnections(transition.id);
-									return (
-										<div
-											key={transition.id}
-											className="p-2 border-b last:border-b-0 border-b-muted-foreground"
-										>
-											<div className="flex gap-3 justify-between items-center">
-												<div className="space-y-2">
-													{inputPlaces.map((place) => (
-														<NodeInfo key={place.id} node={place} />
-													))}
-												</div>
+		<ResizablePanelGroup
+			direction="vertical"
+			className="h-full border-r rounded-none"
+		>
+			<ResizablePanel defaultSize={40} className="flex flex-col">
+				<div className="sticky top-0 z-10 bg-background w-full">
+					<SidebarGroupLabel className="flex items-center justify-between border-b w-full">
+						Enabled Transitions
+						<Badge variant="secondary" className="text-xs">
+							{enabledTransitions.length}
+						</Badge>
+					</SidebarGroupLabel>
+				</div>
+				<div className="flex-1 overflow-auto">
+					<div className="flex flex-col">
+						{enabledTransitions.length > 0 &&
+							enabledTransitionNodes.map((transition) => {
+								const { inputPlaces, outputPlaces } = getTransitionConnections(
+									transition.id
+								);
+								return (
+									<div
+										key={transition.id}
+										className="p-2 border-b last:border-b-0 border-b-muted-foreground"
+									>
+										<div className="flex gap-3 justify-between items-center">
+											<div className="space-y-2">
+												{inputPlaces.map((place) => (
+													<NodeInfo key={place.id} node={place} />
+												))}
+											</div>
 
-												<div className="flex flex-col items-center gap-1">
-													<NodeInfo node={transition} />
-													{MemoizedArrowRight}
-												</div>
+											<div className="flex flex-col items-center gap-1">
+												<NodeInfo node={transition} />
+												{MemoizedArrowRight}
+											</div>
 
-												<div className="space-y-2">
-													{outputPlaces.map((place) => (
-														<NodeInfo key={place.id} node={place} />
-													))}
-												</div>
+											<div className="space-y-2">
+												{outputPlaces.map((place) => (
+													<NodeInfo key={place.id} node={place} />
+												))}
 											</div>
 										</div>
-									);
-								})}
-								<ScrollBar orientation="horizontal" className="w-full" />
-							</ScrollArea>
-						</CardContent>
-					</>
-				)}
-				<CardHeader className="p-3 border-b">
-					<CardTitle className="text-sm font-medium flex items-center justify-between">
+									</div>
+								);
+							})}
+					</div>
+				</div>
+			</ResizablePanel>
+			<ResizableHandle withHandle={true} className="z-20" />
+			<ResizablePanel defaultSize={60} className="flex flex-col">
+				<div className="sticky top-0 z-10 bg-background w-full">
+					<SidebarGroupLabel className="flex items-center justify-between border-b w-full">
 						Selection Info
-						<div className="flex items-center gap-2">
-							<Badge variant="secondary" className="text-xs">
-								{selectedNodes.length + selectedEdges.length}
-							</Badge>
+						<Badge variant="secondary" className="text-xs">
+							{selectedNodes.length + selectedEdges.length}
+						</Badge>
+					</SidebarGroupLabel>
+				</div>
+				<div className="flex-1 flex flex-col overflow-hidden">
+					<Tabs defaultValue="places" className="flex flex-col h-full">
+						<div className="sticky top-0 z-10 bg-background w-full shadow-sm">
+							<TabsList className="w-full flex justify-center rounded-none">
+								<TabsTrigger value="places" className="px-0 w-full font-normal">
+									Places
+									<Badge variant="outline" className="ml-1">
+										{selectedPlaces.length}
+									</Badge>
+								</TabsTrigger>
+								<TabsTrigger
+									value="transitions"
+									className="px-2 w-full font-normal"
+								>
+									Transitions
+									<Badge variant="outline" className="ml-1">
+										{selectedTransitions.length}
+									</Badge>
+								</TabsTrigger>
+								<TabsTrigger value="edges" className="px-0 w-full font-normal">
+									Edges
+									<Badge variant="outline" className="ml-1">
+										{selectedEdges.length}
+									</Badge>
+								</TabsTrigger>
+							</TabsList>
 						</div>
-					</CardTitle>
-				</CardHeader>
-				<CardContent className="p-0 border-b">
-					<Tabs defaultValue="places" className="w-full">
-						<TabsList className="w-full flex justify-center">
-							<TabsTrigger value="places" className="px-1 w-full">
-								Places{" "}
-								<Badge variant="outline" className="ml-1">
-									{selectedPlaces.length}
-								</Badge>
-							</TabsTrigger>
-							<TabsTrigger value="transitions" className="px-1 w-full">
-								Transitions{" "}
-								<Badge variant="outline" className="ml-1 w-full">
-									{selectedTransitions.length}
-								</Badge>
-							</TabsTrigger>
-							<TabsTrigger value="edges" className="px-1 w-full">
-								Edges{" "}
-								<Badge variant="outline" className="ml-1">
-									{selectedEdges.length}
-								</Badge>
-							</TabsTrigger>
-						</TabsList>
-						<TabsContent value="places" className="m-0 flex">
-							<ScrollArea className="h-[calc(20svh)]  w-1 flex-1" type="always">
+						<div className="flex-1 overflow-auto">
+							<TabsContent
+								value="places"
+								className="h-full m-0 p-0 data-[state=active]:flex data-[state=active]:flex-col"
+							>
 								{selectedPlaces.map((node) => (
 									<div
 										key={node.id}
@@ -186,11 +177,11 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 										No places selected
 									</p>
 								)}
-								<ScrollBar orientation="horizontal" className="w-full" />
-							</ScrollArea>
-						</TabsContent>
-						<TabsContent value="transitions" className="m-0 flex">
-							<ScrollArea className="h-[calc(20svh)] w-1 flex-1" type="always">
+							</TabsContent>
+							<TabsContent
+								value="transitions"
+								className="h-full m-0 p-0 data-[state=active]:flex data-[state=active]:flex-col"
+							>
 								{selectedTransitions.map((node) => (
 									<div
 										key={node.id}
@@ -204,11 +195,11 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 										No transitions selected
 									</p>
 								)}
-								<ScrollBar orientation="horizontal" className="w-full" />
-							</ScrollArea>
-						</TabsContent>
-						<TabsContent value="edges" className="m-0 flex">
-							<ScrollArea className="h-[calc(20svh)] w-1 flex-1" type="always">
+							</TabsContent>
+							<TabsContent
+								value="edges"
+								className="h-full m-0 p-0 data-[state=active]:flex data-[state=active]:flex-col"
+							>
 								{selectedEdges.map((edge) => (
 									<div
 										key={edge.id}
@@ -222,12 +213,11 @@ export const SidebarComponent: React.FC<SidebarComponentProps> = ({
 										No edges selected
 									</p>
 								)}
-								<ScrollBar orientation="horizontal" className="w-full" />
-							</ScrollArea>
-						</TabsContent>
+							</TabsContent>
+						</div>
 					</Tabs>
-				</CardContent>
-			</Card>
-		</Sidebar>
+				</div>
+			</ResizablePanel>
+		</ResizablePanelGroup>
 	);
 };

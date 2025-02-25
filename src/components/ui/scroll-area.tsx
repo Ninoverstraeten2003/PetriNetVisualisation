@@ -21,7 +21,7 @@ const ScrollArea = React.memo(
 			<ScrollAreaPrimitive.Corner />
 		</ScrollAreaPrimitive.Root>
 	))
-)
+);
 const ScrollBar = memo(
 	React.forwardRef<
 		React.ElementRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>,
@@ -42,7 +42,7 @@ const ScrollBar = memo(
 			)}
 			{...props}
 		>
-			<ScrollAreaPrimitive.ScrollAreaThumb className="relative flex-1 rounded-full bg-border" />
+			<ScrollAreaPrimitive.ScrollAreaThumb className="relative flex-1 rounded-none bg-border" />
 		</ScrollAreaPrimitive.ScrollAreaScrollbar>
 	))
 );

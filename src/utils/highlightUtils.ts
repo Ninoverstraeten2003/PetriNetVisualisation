@@ -8,9 +8,11 @@ const ACTIVE_STROKE_WIDTH = 4; // Thicker stroke width for active elements
 export const highlightEnabledTransitions = (
 	enabledTransitions: string[],
 	graph: Graph,
-	excalidrawAPI: ExcalidrawImperativeAPI,
+	excalidrawAPI: ExcalidrawImperativeAPI | null,
 	selectedTransition: string | null
 ) => {
+	if (!excalidrawAPI) return;
+
 	const elements = excalidrawAPI.getSceneElements();
 	const updatedElements: ExcalidrawElement[] = elements.map((element) => {
 		// Handle transitions
