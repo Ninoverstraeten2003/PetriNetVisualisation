@@ -1,0 +1,294 @@
+import * as z from "zod";
+
+const positionType = z.object({
+  x: z.number(),
+  y: z.number(),
+});
+
+const dimensionType = z.object({
+  x: z.number(),
+  y: z.number(),
+});
+
+const fillType = z.object({
+  color: z.string().optional(),
+  "gradient-color": z.string().optional(),
+  "gradient-rotation": z.string().optional(),
+  images: z.string().url().optional(),
+});
+
+const lineType = z.object({
+  shape: z.string().optional(),
+  color: z.string().optional(),
+  width: z.number().optional(),
+  style: z.string().optional(),
+});
+
+const fontType = z.object({
+  family: z.string().optional(),
+  style: z.string().optional(),
+  weight: z.string().optional(),
+  size: z.string().optional(),
+  decoration: z.enum(["underline", "overline", "line-through"]).optional(),
+  align: z.enum(["left", "center", "right"]).optional(),
+  rotation: z.number().optional(),
+});
+
+const annotationGraphisType = z.object({
+  offset: positionType.optional(),
+  fill: fillType.optional(),
+  line: lineType.optional(),
+  font: fontType.optional(),
+}).array().optional();
+
+const graphicsNodeType = z.object({
+  position: positionType,
+  dimension: dimensionType.optional(),
+  fill: fillType.optional(),
+  line: lineType.optional(),
+});
+
+const nodeNameType = z.object({
+  text: z.string(),
+  graphics: annotationGraphisType,
+});
+
+const toolspecificType = z.object({
+  tool: z.string(),
+  version: z.string(),
+});
+
+const placeToolspecificType = toolspecificType.extend({
+  operator: z.object({
+    id: z.string(),
+    type: z.number(),
+  }),
+});
+
+const transitionResourceType = z.object({
+  graphics: z.object({position: positionType, dimension: dimensionType}),
+  organizationalUnitName: z.string().optional(),
+  roleName: z.string().optional(),
+});
+
+const transitionToolspecificType = toolspecificType.extend({
+  trigger: z.object({
+    graphics: z.object({position: positionType, dimension: dimensionType}),
+    id: z.string(),
+    type: z.number(),
+  }).optional(),
+  operator: z.object({
+    id: z.string(),
+    type: z.number(),
+  }).optional(),
+  subprocess: z.boolean().optional(),
+  transitionResource: transitionResourceType.optional(),
+  time: z.number().optional(),
+  timeUnit: z.number().optional(),
+  orientation: z.number().optional(),
+  // Add BPEL specific types here.
+});
+
+const arcToolspecificType = toolspecificType.extend({
+  route: z.boolean().optional(),
+  probability: z.number().optional(),
+  displayProbabilityOn: z.boolean().optional(),
+  displayProbabilityPosition: positionType.optional(),
+});
+
+const arcNameType = z.object({
+  text: z.number(),
+  graphics: annotationGraphisType,
+});
+
+const graphicsArcType = z.object({
+  position: positionType.array().optional(),
+  line: lineType.optional(),
+});
+
+const nodeType = z.object({
+  name: nodeNameType.optional(),
+  graphics: graphicsNodeType.optional(),
+  id: z.string(),
+});
+
+const placeType = nodeType.extend({
+  initialMarking: z.object({ text: z.string() }).optional(),
+  toolspecific: placeToolspecificType.array().optional(),
+});
+
+const transitionType = nodeType.extend({
+  toolspecific: transitionToolspecificType.array().optional(),
+});
+
+const arcType = z.object({
+  inscription: arcNameType.optional(),
+  graphics: graphicsArcType.optional(),
+  toolspecific: arcToolspecificType.array().optional(),
+  id: z.string(),
+  source: z.string(),
+  target: z.string(),
+});
+
+const netType = z.object({
+  name: z.object({ text: z.string() }).optional(),
+  place: placeType.array().optional(),
+  transition: transitionType.array().optional(),
+  arc: arcType.array().optional(),
+  toolspecific: toolspecificType.extend({
+    bounds: z.object({position: positionType, dimension: dimensionType}).optional(),
+    scale: z.number().default(100),
+    treeWidth: z.number().optional(),
+    treeWidthRight: z.number().optional(),
+    overviewPanelVisible: z.boolean().optional(),
+    treeHeightOverview: z.number().optional(),
+    treePanelVisible: z.boolean().optional(),
+    verticalLayout: z.boolean().optional(),
+    resources: z.any().optional(),// add resources type.
+    simulations: z.any().optional(),// add simulations type.
+    partnerLinks: z.any().optional(),// add bpel partnerlinks type.
+    variables: z.any().optional(),// add bpel variables type.
+  }).array().optional(),
+  graphics: z.any().optional(),// add graphics type.
+  page: z.any().array().optional(),// add page type.
+  referencePlace: z.any().array().optional(),// add reference place type.
+  text: z.any().optional(), //add text type.
+  id: z.string(),
+  type: z.string().url(),
+});
+
+const pnmlType = z.object({
+  net: netType.array(),
+});
+
+const pnmlSchema = z.object({
+  pnml: pnmlType,
+});
+
+type Pnml = z.infer<typeof pnmlSchema>;
+
+
++++++++++++++++++++++++++++++
+
+
+import { z } from "zod";
+import { parseStringPromise } from "xml2js"; // For parsing XML
+
+// Basic PNML structure schema
+const PlaceSchema = z.object({
+  $: z.object({
+    id: z.string()
+  }),
+  name: z.optional(z.array(z.object({
+    text: z.array(z.string())
+  }))),
+  initialMarking: z.optional(z.array(z.object({
+    text: z.array(z.string().transform(s => parseInt(s, 10)))
+  })))
+});
+
+const TransitionSchema = z.object({
+  $: z.object({
+    id: z.string()
+  }),
+  name: z.optional(z.array(z.object({
+    text: z.array(z.string())
+  })))
+});
+
+const ArcSchema = z.object({
+  $: z.object({
+    id: z.string(),
+    source: z.string(),
+    target: z.string()
+  }),
+  inscription: z.optional(z.array(z.object({
+    text: z.array(z.string().transform(s => parseInt(s, 10)))
+  })))
+});
+
+const NetSchema = z.object({
+  $: z.object({
+    id: z.string(),
+    type: z.string()
+  }),
+  place: z.array(PlaceSchema),
+  transition: z.array(TransitionSchema),
+  arc: z.array(ArcSchema)
+});
+
+const PnmlSchema = z.object({
+  pnml: z.object({
+    net: z.array(NetSchema)
+  })
+});
+
+// Enhanced schema with superRefine for custom validation
+const ValidatedPnmlSchema = PnmlSchema.superRefine((data, ctx) => {
+  // Get all places, transitions, and their IDs for reference
+  const nets = data.pnml.net;
+  
+  for (const net of nets) {
+    const placeIds = new Set(net.place.map(p => p.$.id));
+    const transitionIds = new Set(net.transition.map(t => t.$.id));
+    const nodeIds = new Set([...placeIds, ...transitionIds]);
+    
+    // Validate arcs: source and target must exist
+    for (const [arcIndex, arc] of net.arc.entries()) {
+      if (!nodeIds.has(arc.$.source)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Arc source ID "${arc.$.source}" does not reference a valid place or transition`,
+          path: [`pnml.net.${nets.indexOf(net)}.arc.${arcIndex}.$.source`]
+        });
+      }
+      
+      if (!nodeIds.has(arc.$.target)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `Arc target ID "${arc.$.target}" does not reference a valid place or transition`,
+          path: [`pnml.net.${nets.indexOf(net)}.arc.${arcIndex}.$.target`]
+        });
+      }
+      
+      // Validate proper connections (place->transition or transition->place)
+      if (placeIds.has(arc.$.source) && placeIds.has(arc.$.target)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Arc cannot connect a place to another place",
+          path: [`pnml.net.${nets.indexOf(net)}.arc.${arcIndex}`]
+        });
+      }
+      
+      if (transitionIds.has(arc.$.source) && transitionIds.has(arc.$.target)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Arc cannot connect a transition to another transition",
+          path: [`pnml.net.${nets.indexOf(net)}.arc.${arcIndex}`]
+        });
+      }
+    }
+    
+    // Add more Petri net specific validations as needed
+    // For example: check if the net is connected, validate specific net type constraints, etc.
+  }
+});
+
+// Function to validate a PNML file
+async function validatePnml(pnmlString: string) {
+  try {
+    // Parse XML to JavaScript object
+    const parsed = await parseStringPromise(pnmlString);
+    
+    // Validate with our schema
+    const result = ValidatedPnmlSchema.safeParse(parsed);
+    
+    if (result.success) {
+      return { valid: true, data: result.data };
+    } else {
+      return { valid: false, errors: result.error.format() };
+    }
+  } catch (error) {
+    return { valid: false, errors: `XML parsing error: ${error.message}` };
+  }
+}
