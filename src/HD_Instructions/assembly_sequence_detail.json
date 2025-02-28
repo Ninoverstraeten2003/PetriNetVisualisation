@@ -1,0 +1,1698 @@
+{
+	"steps":
+	[
+		{
+			"step": "0",
+			"name": "Main Housing.kit Main Housing.001",
+			"description": "Insert part 'Main_Housing.kit_Main_Housing.001' into the assembly",
+			"moved_part_name": "Main_Housing.kit_Main_Housing.001",
+			"current_assembly_binary": "step-0000000000000000000000000P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0,
+				"distance_to_next_step": 0.1675144,
+				"difference_moving_direction_to_next_step [degrees]": 179.4273,
+				"part_bounding_box":
+				{
+					"minx": -0.319191,
+					"miny": -0.3727417,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.1000977,
+					"maxz": 0.2371256
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.3727417,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.1000977,
+					"maxz": 0.2371256
+				},
+				"position_final_assembly":
+				[
+					-0.01964188,
+					-0.136322,
+					0.004875399
+				],
+				"move_direction":
+				[
+					0,
+					1,
+					0.01
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 1,
+				"camera_rotation":
+				[
+					0,
+					0,
+					1
+				]
+			}
+		},
+		{
+			"step": "1",
+			"name": "Bearing Inner Small 3.as Solid1:19.002",
+			"description": "Insert part 'Bearing_Inner_Small_3.as_Solid1:19.002' into the assembly",
+			"moved_part_name": "Bearing_Inner_Small_3.as_Solid1:19.002",
+			"current_assembly_binary": "step-0000100000000000000000000P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.4063721,
+				"distance_to_previous_step": 0.1675144,
+				"difference_moving_direction_to_previous_step [degrees]": 179.4273,
+				"distance_to_next_step": 0.1635122,
+				"difference_moving_direction_to_next_step [degrees]": 1.145517,
+				"part_bounding_box":
+				{
+					"minx": 0.03730392,
+					"miny": -0.3062744,
+					"minz": -0.03924377,
+					"maxx": 0.1147537,
+					"maxy": -0.2410889,
+					"maxz": 0.03626385
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.3727417,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.1000977,
+					"maxz": 0.2371256
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.3727417,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.1000977,
+					"maxz": 0.2371256
+				},
+				"position_final_assembly":
+				[
+					0.07602882,
+					-0.2736816,
+					-0.00148996
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 7.074636,
+				"camera_rotation":
+				[
+					-0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "2",
+			"name": "Inner Bearing  Large .as Solid1:18.002",
+			"description": "Insert part 'Inner_Bearing__Large_.as_Solid1:18.002' into the assembly",
+			"moved_part_name": "Inner_Bearing__Large_.as_Solid1:18.002",
+			"current_assembly_binary": "step-0000100000000000100000000P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.4118923,
+				"distance_to_previous_step": 0.1635122,
+				"difference_moving_direction_to_previous_step [degrees]": 1.145517,
+				"distance_to_next_step": 0.1629045,
+				"difference_moving_direction_to_next_step [degrees]": 1.145517,
+				"part_bounding_box":
+				{
+					"minx": -0.1358299,
+					"miny": -0.3062744,
+					"minz": -0.04665063,
+					"maxx": -0.0390625,
+					"maxy": -0.2410889,
+					"maxz": 0.05064547
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.3727417,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.1000977,
+					"maxz": 0.2371256
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.3727417,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.1000977,
+					"maxz": 0.2371256
+				},
+				"position_final_assembly":
+				[
+					-0.08744621,
+					-0.2736816,
+					0.001997419
+				],
+				"move_direction":
+				[
+					0.02,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 5.881077,
+				"camera_rotation":
+				[
+					0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "3",
+			"name": "Bearing 3.as Solid1:4.002",
+			"description": "Insert part 'Bearing_3.as_Solid1:4.002' into the assembly",
+			"moved_part_name": "Bearing_3.as_Solid1:4.002",
+			"current_assembly_binary": "step-0000100000000000110000000P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.4058838,
+				"distance_to_previous_step": 0.1629045,
+				"difference_moving_direction_to_previous_step [degrees]": 1.145517,
+				"distance_to_next_step": 0.1624598,
+				"difference_moving_direction_to_next_step [degrees]": 0,
+				"part_bounding_box":
+				{
+					"minx": 0.02096558,
+					"miny": -0.3057861,
+					"minz": -0.05722488,
+					"maxx": 0.1298256,
+					"maxy": -0.2406006,
+					"maxz": 0.05223528
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.3727417,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.1000977,
+					"maxz": 0.2371256
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.3727417,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.1000977,
+					"maxz": 0.2371256
+				},
+				"position_final_assembly":
+				[
+					0.07539558,
+					-0.2731934,
+					-0.002494805
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 5.331673,
+				"camera_rotation":
+				[
+					-0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "4",
+			"name": "Bearing Large.as Solid1:5.002",
+			"description": "Insert part 'Bearing_Large.as_Solid1:5.002' into the assembly",
+			"moved_part_name": "Bearing_Large.as_Solid1:5.002",
+			"current_assembly_binary": "step-0000100000000010110000000P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.3998413,
+				"distance_to_previous_step": 0.1624598,
+				"difference_moving_direction_to_previous_step [degrees]": 0,
+				"distance_to_next_step": 0.3043787,
+				"difference_moving_direction_to_next_step [degrees]": 4.714055,
+				"part_bounding_box":
+				{
+					"minx": -0.1514587,
+					"miny": -0.2997437,
+					"minz": -0.06806409,
+					"maxx": -0.02244186,
+					"maxy": -0.2345581,
+					"maxz": 0.06166404
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.3727417,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.1000977,
+					"maxz": 0.2371256
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.3727417,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.1000977,
+					"maxz": 0.2371256
+				},
+				"position_final_assembly":
+				[
+					-0.0869503,
+					-0.2671509,
+					-0.003200024
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 4.600054,
+				"camera_rotation":
+				[
+					-0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "5",
+			"name": "Rotor  Female .as Solid1:6.002",
+			"description": "Insert part 'Rotor__Female_.as_Solid1:6.002' into the assembly",
+			"moved_part_name": "Rotor__Female_.as_Solid1:6.002",
+			"current_assembly_binary": "step-0000100000000110110000000P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.4409907,
+				"distance_to_previous_step": 0.3043787,
+				"difference_moving_direction_to_previous_step [degrees]": 4.714055,
+				"distance_to_next_step": 0.1911786,
+				"difference_moving_direction_to_next_step [degrees]": 13.7647,
+				"part_bounding_box":
+				{
+					"minx": -0.01434326,
+					"miny": -0.3101807,
+					"minz": -0.09192745,
+					"maxx": 0.1666336,
+					"maxy": 0.289856,
+					"maxz": 0.08906172
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.3727417,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.1000977,
+					"maxz": 0.2371256
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.3727417,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.289856,
+					"maxz": 0.2371256
+				},
+				"position_final_assembly":
+				[
+					0.07614517,
+					-0.01016235,
+					-0.001432862
+				],
+				"move_direction":
+				[
+					-0.02,
+					-1,
+					-0.08
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 1.369601,
+				"camera_rotation":
+				[
+					0.7071068,
+					0,
+					0.7071068
+				]
+			}
+		},
+		{
+			"step": "6",
+			"name": "Rotor  Male .as Solid1:1.002",
+			"description": "Insert part 'Rotor__Male_.as_Solid1:1.002' into the assembly",
+			"moved_part_name": "Rotor__Male_.as_Solid1:1.002",
+			"current_assembly_binary": "step-0100100000000110110000000P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.8271862,
+				"distance_to_previous_step": 0.1911786,
+				"difference_moving_direction_to_previous_step [degrees]": 13.7647,
+				"distance_to_next_step": 0.2538757,
+				"difference_moving_direction_to_next_step [degrees]": 170.2299,
+				"part_bounding_box":
+				{
+					"minx": -0.1968918,
+					"miny": -0.5114746,
+					"minz": -0.108013,
+					"maxx": 0.02312088,
+					"maxy": 0.2915649,
+					"maxz": 0.1120038
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.3727417,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.289856,
+					"maxz": 0.2371256
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.5114746,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2371256
+				},
+				"position_final_assembly":
+				[
+					-0.08688545,
+					-0.1099548,
+					0.0019954
+				],
+				"move_direction":
+				[
+					-0.01,
+					-0.99,
+					0.16
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 1.16909,
+				"camera_rotation":
+				[
+					0.7071068,
+					0,
+					0.7071068
+				]
+			}
+		},
+		{
+			"step": "7",
+			"name": "Sealing  Bearing .as Solid1:2.002",
+			"description": "Insert part 'Sealing__Bearing_.as_Solid1:2.002' into the assembly",
+			"moved_part_name": "Sealing__Bearing_.as_Solid1:2.002",
+			"current_assembly_binary": "step-1100100000000110110000000P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.1960068,
+				"distance_to_previous_step": 0.2538757,
+				"difference_moving_direction_to_previous_step [degrees]": 170.2299,
+				"distance_to_next_step": 0.1377563,
+				"difference_moving_direction_to_next_step [degrees]": 0.5726661,
+				"part_bounding_box":
+				{
+					"minx": -0.1276703,
+					"miny": -0.4107056,
+					"minz": -0.03774774,
+					"maxx": -0.04614258,
+					"maxy": -0.3169556,
+					"maxz": 0.04173848
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.5114746,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2371256
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.5114746,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2371256
+				},
+				"position_final_assembly":
+				[
+					-0.08690643,
+					-0.3638306,
+					0.00199537
+				],
+				"move_direction":
+				[
+					0,
+					1,
+					0.01
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 7.487412,
+				"camera_rotation":
+				[
+					-0.5773503,
+					0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "8",
+			"name": "Cap.as Solid1:22.002",
+			"description": "Insert part 'Cap.as_Solid1:22.002' into the assembly",
+			"moved_part_name": "Cap.as_Solid1:22.002",
+			"current_assembly_binary": "step-1100100000000110110000100P",
+			"isUserStep": "Automatic",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.1342163,
+				"distance_to_previous_step": 0.1377563,
+				"difference_moving_direction_to_previous_step [degrees]": 0.5726661,
+				"distance_to_next_step": 0.6615083,
+				"difference_moving_direction_to_next_step [degrees]": 178.8545,
+				"part_bounding_box":
+				{
+					"minx": -0.1295395,
+					"miny": -0.6259155,
+					"minz": -0.04284328,
+					"maxx": -0.04425049,
+					"maxy": -0.3772583,
+					"maxz": 0.04683807
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.5114746,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2371256
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2371256
+				},
+				"position_final_assembly":
+				[
+					-0.08689499,
+					-0.5015869,
+					0.001997396
+				],
+				"move_direction":
+				[
+					0,
+					1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 3.975938,
+				"camera_rotation":
+				[
+					-0.5773503,
+					0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "9",
+			"name": "Top Lid.as Top Lid.001",
+			"description": "Insert part 'Top_Lid.as_Top_Lid.001' into the assembly",
+			"moved_part_name": "Top_Lid.as_Top_Lid.001",
+			"current_assembly_binary": "step-1100100000000111110000100P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.1980965,
+				"distance_to_previous_step": 0.6615083,
+				"difference_moving_direction_to_previous_step [degrees]": 178.8545,
+				"distance_to_next_step": 0.1017953,
+				"difference_moving_direction_to_next_step [degrees]": 1.145517,
+				"part_bounding_box":
+				{
+					"minx": -0.3196373,
+					"miny": 0.1003418,
+					"minz": -0.1881351,
+					"maxx": 0.279213,
+					"maxy": 0.2119751,
+					"maxz": 0.2376352
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.319191,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2371256
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"position_final_assembly":
+				[
+					-0.02021217,
+					0.1561584,
+					0.02475003
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0.02
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 1.601356,
+				"camera_rotation":
+				[
+					-0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "10",
+			"name": "Bearing Inner Small 2.as Solid1:21.002",
+			"description": "Insert part 'Bearing_Inner_Small_2.as_Solid1:21.002' into the assembly",
+			"moved_part_name": "Bearing_Inner_Small_2.as_Solid1:21.002",
+			"current_assembly_binary": "step-1110100000000111110000100P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.1460571,
+				"distance_to_previous_step": 0.1017953,
+				"difference_moving_direction_to_previous_step [degrees]": 1.145517,
+				"distance_to_next_step": 0.1629772,
+				"difference_moving_direction_to_next_step [degrees]": 0,
+				"part_bounding_box":
+				{
+					"minx": 0.03731537,
+					"miny": 0.1437988,
+					"minz": -0.03923558,
+					"maxx": 0.114769,
+					"maxy": 0.2089844,
+					"maxz": 0.03627613
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"position_final_assembly":
+				[
+					0.07604218,
+					0.1763916,
+					-0.001479723
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 8,
+				"camera_rotation":
+				[
+					-0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "11",
+			"name": "Bearing Inner Small 1.as Solid1:20.002",
+			"description": "Insert part 'Bearing_Inner_Small_1.as_Solid1:20.002' into the assembly",
+			"moved_part_name": "Bearing_Inner_Small_1.as_Solid1:20.002",
+			"current_assembly_binary": "step-1110100000000111110001100P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.1487427,
+				"distance_to_previous_step": 0.1629772,
+				"difference_moving_direction_to_previous_step [degrees]": 0,
+				"distance_to_next_step": 0.1622642,
+				"difference_moving_direction_to_next_step [degrees]": 0,
+				"part_bounding_box":
+				{
+					"minx": -0.125618,
+					"miny": 0.1428223,
+					"minz": -0.03575838,
+					"maxx": -0.048172,
+					"maxy": 0.2080078,
+					"maxz": 0.03975333
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"position_final_assembly":
+				[
+					-0.08689499,
+					0.175415,
+					0.001997478
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 8,
+				"camera_rotation":
+				[
+					-0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "12",
+			"name": "Bearing 2.as Solid1:10.002",
+			"description": "Insert part 'Bearing_2.as_Solid1:10.002' into the assembly",
+			"moved_part_name": "Bearing_2.as_Solid1:10.002",
+			"current_assembly_binary": "step-1110100000000111110011100P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.1477661,
+				"distance_to_previous_step": 0.1622642,
+				"difference_moving_direction_to_previous_step [degrees]": 0,
+				"distance_to_next_step": 0.1610214,
+				"difference_moving_direction_to_next_step [degrees]": 0.5726661,
+				"part_bounding_box":
+				{
+					"minx": 0.02087021,
+					"miny": 0.1437988,
+					"minz": -0.05729413,
+					"maxx": 0.129734,
+					"maxy": 0.2089844,
+					"maxz": 0.05216603
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"position_final_assembly":
+				[
+					0.07530212,
+					0.1763916,
+					-0.00256405
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 7.104623,
+				"camera_rotation":
+				[
+					-0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "13",
+			"name": "Bearing 1.as Solid1:9.002",
+			"description": "Insert part 'Bearing_1.as_Solid1:9.002' into the assembly",
+			"moved_part_name": "Bearing_1.as_Solid1:9.002",
+			"current_assembly_binary": "step-1110100000000111110111100P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.1456312,
+				"distance_to_previous_step": 0.1610214,
+				"difference_moving_direction_to_previous_step [degrees]": 0.5726661,
+				"distance_to_next_step": 0.3350899,
+				"difference_moving_direction_to_next_step [degrees]": 0.5726661,
+				"part_bounding_box":
+				{
+					"minx": -0.1400986,
+					"miny": 0.147583,
+					"minz": -0.05596115,
+					"maxx": -0.03123856,
+					"maxy": 0.2128296,
+					"maxz": 0.05349903
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"position_final_assembly":
+				[
+					-0.08566856,
+					0.1802063,
+					-0.001231059
+				],
+				"move_direction":
+				[
+					0.01,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 7.103721,
+				"camera_rotation":
+				[
+					-0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "14",
+			"name": "Bolt Short 2.as Bolt Short 2.001",
+			"description": "Insert part 'Bolt_Short_2.as_Bolt_Short_2.001' into the assembly",
+			"moved_part_name": "Bolt_Short_2.as_Bolt_Short_2.001",
+			"current_assembly_binary": "step-1110100000000111111111100P",
+			"isUserStep": "Automatic",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.2081909,
+				"distance_to_previous_step": 0.3350899,
+				"difference_moving_direction_to_previous_step [degrees]": 0.5726661,
+				"distance_to_next_step": 0.5175683,
+				"difference_moving_direction_to_next_step [degrees]": 0,
+				"part_bounding_box":
+				{
+					"minx": 0.2102814,
+					"miny": 0.00378418,
+					"minz": -0.03459252,
+					"maxx": 0.2672043,
+					"maxy": 0.1889038,
+					"maxz": 0.02592607
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"position_final_assembly":
+				[
+					0.2387428,
+					0.09634399,
+					-0.004333228
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 5.867515,
+				"camera_rotation":
+				[
+					-0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "15",
+			"name": "Bolt Short 1.as Bolt Short 1.001",
+			"description": "Insert part 'Bolt_Short_1.as_Bolt_Short_1.001' into the assembly",
+			"moved_part_name": "Bolt_Short_1.as_Bolt_Short_1.001",
+			"current_assembly_binary": "step-1110100000000111111111101P",
+			"isUserStep": "Automatic",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.2081909,
+				"distance_to_previous_step": 0.5175683,
+				"difference_moving_direction_to_previous_step [degrees]": 0,
+				"distance_to_next_step": 0.2359687,
+				"difference_moving_direction_to_next_step [degrees]": 0,
+				"part_bounding_box":
+				{
+					"minx": -0.3092384,
+					"miny": 0.00378418,
+					"minz": -0.0207123,
+					"maxx": -0.2481766,
+					"maxy": 0.1889038,
+					"maxz": 0.03414415
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"position_final_assembly":
+				[
+					-0.2787075,
+					0.09634399,
+					0.006715924
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 5.879303,
+				"camera_rotation":
+				[
+					0.5773503,
+					-0.5773503,
+					0.5773503
+				]
+			}
+		},
+		{
+			"step": "16",
+			"name": "Ball Bearing 1.as Solid1:11.002",
+			"description": "Insert part 'Ball_Bearing_1.as_Solid1:11.002' into the assembly",
+			"moved_part_name": "Ball_Bearing_1.as_Solid1:11.002",
+			"current_assembly_binary": "step-1110100000000111111111111P",
+			"isUserStep": "Manual",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.0791626,
+				"distance_to_previous_step": 0.2359687,
+				"difference_moving_direction_to_previous_step [degrees]": 0,
+				"distance_to_next_step": 0.1629724,
+				"difference_moving_direction_to_next_step [degrees]": 0,
+				"part_bounding_box":
+				{
+					"minx": -0.1582451,
+					"miny": 0.2124023,
+					"minz": -0.06894454,
+					"maxx": -0.01713181,
+					"maxy": 0.2572021,
+					"maxz": 0.07294358
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"position_final_assembly":
+				[
+					-0.08768845,
+					0.2348022,
+					0.00199952
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 5.805781,
+				"camera_rotation":
+				[
+					-0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "17",
+			"name": "Ball Bearing 2.as Solid1:3.002",
+			"description": "Insert part 'Ball_Bearing_2.as_Solid1:3.002' into the assembly",
+			"moved_part_name": "Ball_Bearing_2.as_Solid1:3.002",
+			"current_assembly_binary": "step-1110100100000111111111111P",
+			"isUserStep": "Automatic",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.0791626,
+				"distance_to_previous_step": 0.1629724,
+				"difference_moving_direction_to_previous_step [degrees]": 0,
+				"distance_to_next_step": 0.02879,
+				"difference_moving_direction_to_next_step [degrees]": 0,
+				"part_bounding_box":
+				{
+					"minx": 0.004688263,
+					"miny": 0.2124023,
+					"minz": -0.07242581,
+					"maxx": 0.1458054,
+					"maxy": 0.2572021,
+					"maxz": 0.06946638
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"position_final_assembly":
+				[
+					0.07524681,
+					0.2348022,
+					-0.001479715
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 5.805627,
+				"camera_rotation":
+				[
+					-0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "18",
+			"name": "Fine Screw  M.as Solid1:17.002",
+			"description": "Insert part 'Fine_Screw__M.as_Solid1:17.002' into the assembly",
+			"moved_part_name": "Fine_Screw__M.as_Solid1:17.002",
+			"current_assembly_binary": "step-1110100110000111111111111P",
+			"isUserStep": "Automatic",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.03448486,
+				"distance_to_previous_step": 0.02879,
+				"difference_moving_direction_to_previous_step [degrees]": 0,
+				"distance_to_next_step": 0.1629724,
+				"difference_moving_direction_to_next_step [degrees]": 0,
+				"part_bounding_box":
+				{
+					"minx": 0.02518845,
+					"miny": 0.2553711,
+					"minz": -0.05230865,
+					"maxx": 0.1269569,
+					"maxy": 0.2717896,
+					"maxz": 0.04947966
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"position_final_assembly":
+				[
+					0.07607269,
+					0.2635803,
+					-0.001414493
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 8,
+				"camera_rotation":
+				[
+					0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "19",
+			"name": "Fine Screw  F.as Solid1:16.002",
+			"description": "Insert part 'Fine_Screw__F.as_Solid1:16.002' into the assembly",
+			"moved_part_name": "Fine_Screw__F.as_Solid1:16.002",
+			"current_assembly_binary": "step-1110101110000111111111111P",
+			"isUserStep": "Automatic",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.03619385,
+				"distance_to_previous_step": 0.1629724,
+				"difference_moving_direction_to_previous_step [degrees]": 0,
+				"distance_to_next_step": 0.0722387,
+				"difference_moving_direction_to_next_step [degrees]": 0,
+				"part_bounding_box":
+				{
+					"minx": -0.1377449,
+					"miny": 0.2553711,
+					"minz": -0.04883146,
+					"maxx": -0.03598022,
+					"maxy": 0.2717896,
+					"maxz": 0.05295685
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"position_final_assembly":
+				[
+					-0.08686256,
+					0.2635803,
+					0.002062693
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 8,
+				"camera_rotation":
+				[
+					0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "20",
+			"name": "Bearing  Sealing .as Bearing  Sealing .001",
+			"description": "Insert part 'Bearing__Sealing_.as_Bearing__Sealing_.001' into the assembly",
+			"moved_part_name": "Bearing__Sealing_.as_Bearing__Sealing_.001",
+			"current_assembly_binary": "step-1110111110000111111111111P",
+			"isUserStep": "Automatic",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.07720947,
+				"distance_to_previous_step": 0.0722387,
+				"difference_moving_direction_to_previous_step [degrees]": 0,
+				"distance_to_next_step": 0.1983189,
+				"difference_moving_direction_to_next_step [degrees]": 1.281,
+				"part_bounding_box":
+				{
+					"minx": -0.2297211,
+					"miny": 0.2143555,
+					"minz": -0.1877234,
+					"maxx": 0.190033,
+					"maxy": 0.3407593,
+					"maxz": 0.2379613
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.2915649,
+					"maxz": 0.2376352
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.3407593,
+					"maxz": 0.2379613
+				},
+				"position_final_assembly":
+				[
+					-0.01984406,
+					0.2775574,
+					0.02511896
+				],
+				"move_direction":
+				[
+					0,
+					-1,
+					0
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 1.94841,
+				"camera_rotation":
+				[
+					0.5773503,
+					-0.5773503,
+					-0.5773503
+				]
+			}
+		},
+		{
+			"step": "21",
+			"name": "Large Bolt 4.as Solid1:15.002",
+			"description": "Insert part 'Large_Bolt_4.as_Solid1:15.002' into the assembly",
+			"moved_part_name": "Large_Bolt_4.as_Solid1:15.002",
+			"current_assembly_binary": "step-1111111110000111111111111P",
+			"isUserStep": "Automatic",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.2953799,
+				"distance_to_previous_step": 0.1983189,
+				"difference_moving_direction_to_previous_step [degrees]": 1.281,
+				"distance_to_next_step": 0.201653,
+				"difference_moving_direction_to_next_step [degrees]": 1.811429,
+				"part_bounding_box":
+				{
+					"minx": 0.03016663,
+					"miny": 0.05566406,
+					"minz": -0.1730564,
+					"maxx": 0.08269501,
+					"maxy": 0.3735962,
+					"maxz": -0.1205235
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.3407593,
+					"maxz": 0.2379613
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.3735962,
+					"maxz": 0.2379613
+				},
+				"position_final_assembly":
+				[
+					0.05643082,
+					0.2146301,
+					-0.14679
+				],
+				"move_direction":
+				[
+					0.02,
+					-1,
+					-0.01
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 3.764222,
+				"camera_rotation":
+				[
+					0,
+					0,
+					-1
+				]
+			}
+		},
+		{
+			"step": "22",
+			"name": "Large Bolt 3.as Solid1:13.002",
+			"description": "Insert part 'Large_Bolt_3.as_Solid1:13.002' into the assembly",
+			"moved_part_name": "Large_Bolt_3.as_Solid1:13.002",
+			"current_assembly_binary": "step-1111111110001111111111111P",
+			"isUserStep": "Automatic",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.2870751,
+				"distance_to_previous_step": 0.201653,
+				"difference_moving_direction_to_previous_step [degrees]": 1.811429,
+				"distance_to_next_step": 0.3241934,
+				"difference_moving_direction_to_next_step [degrees]": 1.811429,
+				"part_bounding_box":
+				{
+					"minx": -0.1714478,
+					"miny": 0.05615234,
+					"minz": -0.1686824,
+					"maxx": -0.1189003,
+					"maxy": 0.3740845,
+					"maxz": -0.1161373
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.3735962,
+					"maxz": 0.2379613
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.3740845,
+					"maxz": 0.2379613
+				},
+				"position_final_assembly":
+				[
+					-0.145174,
+					0.2151184,
+					-0.1424099
+				],
+				"move_direction":
+				[
+					0.01,
+					-1,
+					0.02
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 3.843771,
+				"camera_rotation":
+				[
+					0,
+					0,
+					-1
+				]
+			}
+		},
+		{
+			"step": "23",
+			"name": "Large Bolt 2.as Solid1:14.002",
+			"description": "Insert part 'Large_Bolt_2.as_Solid1:14.002' into the assembly",
+			"moved_part_name": "Large_Bolt_2.as_Solid1:14.002",
+			"current_assembly_binary": "step-1111111110011111111111111P",
+			"isUserStep": "Automatic",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.2955067,
+				"distance_to_previous_step": 0.3241934,
+				"difference_moving_direction_to_previous_step [degrees]": 1.811429,
+				"distance_to_next_step": 0.2428694,
+				"difference_moving_direction_to_next_step [degrees]": 2.29132,
+				"part_bounding_box":
+				{
+					"minx": -0.1608543,
+					"miny": 0.05615234,
+					"minz": 0.1553526,
+					"maxx": -0.1083374,
+					"maxy": 0.3740845,
+					"maxz": 0.2078692
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.3740845,
+					"maxz": 0.2379613
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.3740845,
+					"maxz": 0.2379613
+				},
+				"position_final_assembly":
+				[
+					-0.1345959,
+					0.2151184,
+					0.1816109
+				],
+				"move_direction":
+				[
+					-0.02,
+					-1,
+					0.01
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 3.845074,
+				"camera_rotation":
+				[
+					0,
+					0,
+					-1
+				]
+			}
+		},
+		{
+			"step": "24",
+			"name": "Large Bolt 1.as Solid1:12.002",
+			"description": "Insert part 'Large_Bolt_1.as_Solid1:12.002' into the assembly",
+			"moved_part_name": "Large_Bolt_1.as_Solid1:12.002",
+			"current_assembly_binary": "step-1111111111011111111111111P",
+			"isUserStep": "Automatic",
+			"isUserSubAssembly": "CAD-defined",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"move_distance": 0.2957184,
+				"distance_to_previous_step": 0.2428694,
+				"difference_moving_direction_to_previous_step [degrees]": 2.29132,
+				"part_bounding_box":
+				{
+					"minx": 0.08197021,
+					"miny": 0.05615234,
+					"minz": 0.1499635,
+					"maxx": 0.1344566,
+					"maxy": 0.3740845,
+					"maxz": 0.2024557
+				},
+				"assembly_bounding_box_without_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.3740845,
+					"maxz": 0.2379613
+				},
+				"assembly_bounding_box_with_part":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.3740845,
+					"maxz": 0.2379613
+				},
+				"position_final_assembly":
+				[
+					0.1082134,
+					0.2151184,
+					0.1762096
+				],
+				"move_direction":
+				[
+					0.02,
+					-1,
+					0.01
+				]
+			},
+			"camera_info":
+			{
+				"camera_scale": 3.845178,
+				"camera_rotation":
+				[
+					0,
+					0,
+					-1
+				]
+			}
+		},
+		{
+			"step": "25",
+			"name": "Finished",
+			"description": "The sub-assembly is finished",
+			"moved_part_name": "none",
+			"current_assembly_binary": "step-/////////////////////////P",
+			"isUserStep": "Automatic",
+			"isUserView": "Automatic",
+			"location_info":
+			{
+				"finished_assembly_bounding_box":
+				{
+					"minx": -0.3196373,
+					"miny": -0.6259155,
+					"minz": -0.2273748,
+					"maxx": 0.2799072,
+					"maxy": 0.3740845,
+					"maxz": 0.2379613
+				}
+			},
+			"camera_info":
+			{
+				"camera_scale": 1,
+				"camera_rotation":
+				[
+					0,
+					0,
+					-1
+				]
+			}
+		}
+	]
+}

@@ -1,5 +1,5 @@
 import { layoutGraph } from "@/layoutService";
-import { Edge, Node } from "@/types";
+import { Edge, Graph, Node } from "@/types";
 import { parsePNML } from "@/utils/pnmlParser";
 import { Excalidraw, WelcomeScreen } from "@excalidraw/excalidraw";
 import { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types";
@@ -201,6 +201,29 @@ const PetriNetEditor: React.FC = () => {
 		[excalidrawAPI, layoutEngine]
 	);
 
+	const handleFromJsonUpload = async (graph: Graph) => {
+		try {
+			petriNetActor.send({
+				type: "UPLOAD_FILE",
+				graph,
+			});
+			const layoutedElements = await layoutGraph(graph, layoutEngine);
+			if (excalidrawAPI) {
+				excalidrawAPI.updateScene({
+					elements: layoutedElements,
+				});
+				excalidrawAPI.scrollToContent();
+			}
+		} catch (e) {
+			toast.error("Something went wrong", { icon: "❌" });
+			console.error(e);
+		} finally {
+			toast.message("File uploaded", {
+				icon: "✔️",
+			});
+		}
+	};
+
 	const handleGameActiveToggle = useCallback(() => {
 		if (isGameActive) {
 			petriNetActor.send({ type: "END_GAME" });
@@ -299,6 +322,7 @@ const PetriNetEditor: React.FC = () => {
 				onTransitionSelect={handleTransitionSelect}
 				onFireTransition={handleFireTransition}
 				hasGraphData={hasGraphData}
+        handleFromJsonUpload={handleFromJsonUpload}
 			>
 				{isGameActive && (
 					<TokenGameController

@@ -11,6 +11,7 @@ import { MainMenu } from "@excalidraw/excalidraw";
 import React from "react";
 import { Graph } from "../types";
 import test from "../../src/test.pnml?raw";
+import { assemblyGraphData } from "@/utils/assembly_sequence_to_graph";
 
 interface MainMenuProps {
 	layoutEngine: "dagre" | "elk" | "webcola";
@@ -29,6 +30,7 @@ interface MainMenuProps {
 	onTransitionSelect: (transitionId: string) => void;
 	onFireTransition: (outputId: string) => void;
 	hasGraphData: boolean;
+	handleFromJsonUpload: (event: Graph) => void;
 	children?: React.ReactNode;
 }
 
@@ -40,6 +42,7 @@ export const MainMenuComponent: React.FC<MainMenuProps> = ({
 	handleGameActiveToggle,
 	handleResetGame,
 	hasGraphData,
+	handleFromJsonUpload,
 	children,
 }) => {
 	const handleButtonClick = () => {
@@ -94,6 +97,14 @@ export const MainMenuComponent: React.FC<MainMenuProps> = ({
 						className={`w-full ${isGameActive ? "hidden" : "visible"}`}
 					>
 						Example file
+					</Button>
+					<Button
+						onClick={() => handleFromJsonUpload(assemblyGraphData)}
+						variant={"outline"}
+						disabled={isGameActive}
+						className={`w-full ${isGameActive ? "hidden" : "visible"}`}
+					>
+						Example JSON
 					</Button>
 				</div>
 			</MainMenu.ItemCustom>

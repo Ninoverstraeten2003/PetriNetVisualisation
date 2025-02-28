@@ -1,0 +1,1 @@
+Insert part 'Bearing_Large.as_Solid1:5.002' into the assembly

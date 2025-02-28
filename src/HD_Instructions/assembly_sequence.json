@@ -1,0 +1,505 @@
+{
+	"steps":
+	[
+		{
+			"step": "0",
+			"name": "Main Housing.kit Main Housing.001",
+			"description": "Insert the main housing kit into the assembly.",
+			"removed_part_name": "Main_Housing.kit_Main_Housing.001",
+			"hierarchyID": 4,
+			"move_distance": 0,
+			"move_direction":
+			[
+				0,
+				1,
+				0.01
+			],
+			"final_position_in_assembly":
+			[
+				-0.01964188,
+				-0.136322,
+				0.004875399
+			]
+		},
+		{
+			"step": "1",
+			"name": "Bearing Inner Small 3.as Solid1:19.002",
+			"description": "Place the first small bearing ring into the left side of the housing kit.",
+			"removed_part_name": "Bearing_Inner_Small_3.as_Solid1:19.002",
+			"hierarchyID": 16,
+			"move_distance": 0.4063721,
+			"move_direction":
+			[
+				0,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				0.07602882,
+				-0.2736816,
+				-0.00148996
+			]
+		},
+		{
+			"step": "2",
+			"name": "Inner Bearing  Large .as Solid1:18.002",
+			"description": "Place a bearing ring into the right side of the housing kit.",
+			"removed_part_name": "Inner_Bearing__Large_.as_Solid1:18.002",
+			"hierarchyID": 17,
+			"move_distance": 0.4118923,
+			"move_direction":
+			[
+				0.02,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				-0.08744621,
+				-0.2736816,
+				0.001997419
+			]
+		},
+		{
+			"step": "3",
+			"name": "Bearing 3.as Solid1:4.002",
+			"description":"Place a bigger bearing ring around the first ring on the left side of the housing kit.",
+			"removed_part_name": "Bearing_3.as_Solid1:4.002",
+			"hierarchyID": 14,
+			"move_distance": 0.4058838,
+			"move_direction":
+			[
+				0,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				0.07539558,
+				-0.2731934,
+				-0.002494805
+			]
+		},
+		{
+			"step": "4",
+			"name": "Bearing Large.as Solid1:5.002",
+			"description": "Place a bigger bearing ring around the first ring on the right side of the housing kit.",
+			"removed_part_name": "Bearing_Large.as_Solid1:5.002",
+			"hierarchyID": 13,
+			"move_distance": 0.3998413,
+			"move_direction":
+			[
+				0,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				-0.0869503,
+				-0.2671509,
+				-0.003200024
+			]
+		},
+		{
+			"step": "5",
+			"name": "Rotor  Female .as Solid1:6.002",
+			"description": "Place the smaller rotor into the left side of the housing kit.",
+			"removed_part_name": "Rotor__Female_.as_Solid1:6.002",
+			"hierarchyID": 1,
+			"move_distance": 0.4409907,
+			"move_direction":
+			[
+				-0.02,
+				-1,
+				-0.08
+			],
+			"final_position_in_assembly":
+			[
+				0.07614517,
+				-0.01016235,
+				-0.001432862
+			]
+		},
+		{
+			"step": "6",
+			"name": "Rotor  Male .as Solid1:1.002",
+			"description": "Place the bigger rotor into the right side of the housing kit.\n\n\nRotate it gently while placing it to make it fit properly.",
+			"removed_part_name": "Rotor__Male_.as_Solid1:1.002",
+			"hierarchyID": 0,
+			"move_distance": 0.8271862,
+			"move_direction":
+			[
+				-0.01,
+				-0.99,
+				0.16
+			],
+			"final_position_in_assembly":
+			[
+				-0.08688545,
+				-0.1099548,
+				0.0019954
+			]
+		},
+		{
+			"step": "7",
+			"name": "Sealing  Bearing .as Solid1:2.002",
+			"description": "Place the sealing bearing into the housing kit from the bottom of the big rotor.\n\nAfter placing it, the bearing should stay in place.",
+			"removed_part_name": "Sealing__Bearing_.as_Solid1:2.002",
+			"hierarchyID": 22,
+			"move_distance": 0.1960068,
+			"move_direction":
+			[
+				0,
+				1,
+				0.01
+			],
+			"final_position_in_assembly":
+			[
+				-0.08690643,
+				-0.3638306,
+				0.00199537
+			]
+		},
+		{
+			"step": "8",
+			"name": "Cap.as Solid1:22.002",
+			"description": "Place the cap to cover the bottom of the big rotor.",
+			"removed_part_name": "Cap.as_Solid1:22.002",
+			"hierarchyID": 15,
+			"move_distance": 0.1342163,
+			"move_direction":
+			[
+				0,
+				1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				-0.08689499,
+				-0.5015869,
+				0.001997396
+			]
+		},
+		{
+			"step": "9",
+			"name": "Top Lid.as Top Lid.001",
+			"description": "Place the lid on top of the two rotors.",
+			"removed_part_name": "Top_Lid.as_Top_Lid.001",
+			"hierarchyID": 2,
+			"move_distance": 0.1980965,
+			"move_direction":
+			[
+				0,
+				-1,
+				0.02
+			],
+			"final_position_in_assembly":
+			[
+				-0.02021217,
+				0.1561584,
+				0.02475003
+			]
+		},
+		{
+			"step": "10",
+			"name": "Bearing Inner Small 2.as Solid1:21.002",
+			"description": "Place a smaller bearing on the small rotor.",
+			"removed_part_name": "Bearing_Inner_Small_2.as_Solid1:21.002",
+			"hierarchyID": 21,
+			"move_distance": 0.1460571,
+			"move_direction":
+			[
+				0,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				0.07604218,
+				0.1763916,
+				-0.001479723
+			]
+		},
+		{
+			"step": "11",
+			"name": "Bearing Inner Small 1.as Solid1:20.002",
+			"description": "Place a smaller bearing on the big rotor.",
+			"removed_part_name": "Bearing_Inner_Small_1.as_Solid1:20.002",
+			"hierarchyID": 20,
+			"move_distance": 0.1487427,
+			"move_direction":
+			[
+				0,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				-0.08689499,
+				0.175415,
+				0.001997478
+			]
+		},
+		{
+			"step": "12",
+			"name": "Bearing 2.as Solid1:10.002",
+			"description": "Place a big bearing above the smaller bearing of the small rotor.",
+			"removed_part_name": "Bearing_2.as_Solid1:10.002",
+			"hierarchyID": 19,
+			"move_distance": 0.1477661,
+			"move_direction":
+			[
+				0,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				0.07530212,
+				0.1763916,
+				-0.00256405
+			]
+		},
+		{
+			"step": "13",
+			"name": "Bearing 1.as Solid1:9.002",
+			"description": "Place a big bearing above the smaller bearing of the big rotor.",
+			"removed_part_name": "Bearing_1.as_Solid1:9.002",
+			"hierarchyID": 18,
+			"move_distance": 0.1456312,
+			"move_direction":
+			[
+				0.01,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				-0.08566856,
+				0.1802063,
+				-0.001231059
+			]
+		},
+		{
+			"step": "14",
+			"name": "Bolt Short 2.as Bolt Short 2.001",
+			"description": "Place the bolt inside the left side of the lid.",
+			"removed_part_name": "Bolt_Short_2.as_Bolt_Short_2.001",
+			"hierarchyID": 24,
+			"move_distance": 0.2081909,
+			"move_direction":
+			[
+				0,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				0.2387428,
+				0.09634399,
+				-0.004333228
+			]
+		},
+		{
+			"step": "15",
+			"name": "Bolt Short 1.as Bolt Short 1.001",
+			"description": "Place the bolt inside the right side of the lid.",
+			"removed_part_name": "Bolt_Short_1.as_Bolt_Short_1.001",
+			"hierarchyID": 23,
+			"move_distance": 0.2081909,
+			"move_direction":
+			[
+				0,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				-0.2787075,
+				0.09634399,
+				0.006715924
+			]
+		},
+		{
+			"step": "16",
+			"name": "Ball Bearing 1.as Solid1:11.002",
+			"description": "Place the ball bearing on the rotor on the right side.",
+			"removed_part_name": "Ball_Bearing_1.as_Solid1:11.002",
+			"hierarchyID": 7,
+			"move_distance": 0.0791626,
+			"move_direction":
+			[
+				0,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				-0.08768845,
+				0.2348022,
+				0.00199952
+			]
+		},
+		{
+			"step": "17",
+			"name": "Ball Bearing 2.as Solid1:3.002",
+			"description": "Place the ball bearing on the rotor on the left side.",
+			"removed_part_name": "Ball_Bearing_2.as_Solid1:3.002",
+			"hierarchyID": 8,
+			"move_distance": 0.0791626,
+			"move_direction":
+			[
+				0,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				0.07524681,
+				0.2348022,
+				-0.001479715
+			]
+		},
+		{
+			"step": "18",
+			"name": "Fine Screw  M.as Solid1:17.002",
+			"description": "Screw on the first screw on the left rotor.",
+			"removed_part_name": "Fine_Screw__M.as_Solid1:17.002",
+			"hierarchyID": 6,
+			"move_distance": 0.03448486,
+			"move_direction":
+			[
+				0,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				0.07607269,
+				0.2635803,
+				-0.001414493
+			]
+		},
+		{
+			"step": "19",
+			"name": "Fine Screw  F.as Solid1:16.002",
+			"description": "Screw on the second screw on the right rotor.",
+			"removed_part_name": "Fine_Screw__F.as_Solid1:16.002",
+			"hierarchyID": 5,
+			"move_distance": 0.03619385,
+			"move_direction":
+			[
+				0,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				-0.08686256,
+				0.2635803,
+				0.002062693
+			]
+		},
+		{
+			"step": "20",
+			"name": "Bearing  Sealing .as Bearing  Sealing .001",
+			"description": "Place the sealing lid on top of the compressor.",
+			"removed_part_name": "Bearing__Sealing_.as_Bearing__Sealing_.001",
+			"hierarchyID": 3,
+			"move_distance": 0.07720947,
+			"move_direction":
+			[
+				0,
+				-1,
+				0
+			],
+			"final_position_in_assembly":
+			[
+				-0.01984406,
+				0.2775574,
+				0.02511896
+			]
+		},
+		{
+			"step": "21",
+			"name": "Large Bolt 4.as Solid1:15.002",
+			"description": "Place the first bolt through the sealing lid.",
+			"removed_part_name": "Large_Bolt_4.as_Solid1:15.002",
+			"hierarchyID": 12,
+			"move_distance": 0.2953799,
+			"move_direction":
+			[
+				0.02,
+				-1,
+				-0.01
+			],
+			"final_position_in_assembly":
+			[
+				0.05643082,
+				0.2146301,
+				-0.14679
+			]
+		},
+		{
+			"step": "22",
+			"name": "Large Bolt 3.as Solid1:13.002",
+			"description": "Place the second bolt through the sealing lid.",
+			"removed_part_name": "Large_Bolt_3.as_Solid1:13.002",
+			"hierarchyID": 11,
+			"move_distance": 0.2870751,
+			"move_direction":
+			[
+				0.01,
+				-1,
+				0.02
+			],
+			"final_position_in_assembly":
+			[
+				-0.145174,
+				0.2151184,
+				-0.1424099
+			]
+		},
+		{
+			"step": "23",
+			"name": "Large Bolt 2.as Solid1:14.002",
+			"description": "Place the third bolt through the sealing lid.",
+			"removed_part_name": "Large_Bolt_2.as_Solid1:14.002",
+			"hierarchyID": 9,
+			"move_distance": 0.2955067,
+			"move_direction":
+			[
+				-0.02,
+				-1,
+				0.01
+			],
+			"final_position_in_assembly":
+			[
+				-0.1345959,
+				0.2151184,
+				0.1816109
+			]
+		},
+		{
+			"step": "24",
+			"name": "Large Bolt 1.as Solid1:12.002",
+			"description": "Place the fourth bolt through the sealing lid.",
+			"removed_part_name": "Large_Bolt_1.as_Solid1:12.002",
+			"hierarchyID": 10,
+			"move_distance": 0.2957184,
+			"move_direction":
+			[
+				0.02,
+				-1,
+				0.01
+			],
+			"final_position_in_assembly":
+			[
+				0.1082134,
+				0.2151184,
+				0.1762096
+			]
+		}
+	]
+}

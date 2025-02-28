@@ -1,0 +1,700 @@
+{
+	"CAD info":
+	[
+		{
+			"name": "Rotor__Male_.as_Solid1:1.002",
+			"centre_box": "-0.08688545,-0.1099548,0.0019954",
+			"subassemblyID": 0,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.1968918,
+				"miny": -0.5114746,
+				"minz": -0.108013,
+				"maxx": 0.02312088,
+				"maxy": 0.2915649,
+				"maxz": 0.1120038
+			}
+		},
+		{
+			"name": "Rotor__Female_.as_Solid1:6.002",
+			"centre_box": "0.07614517,-0.01016235,-0.001432862",
+			"subassemblyID": 1,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.01434326,
+				"miny": -0.3101807,
+				"minz": -0.09192745,
+				"maxx": 0.1666336,
+				"maxy": 0.289856,
+				"maxz": 0.08906172
+			}
+		},
+		{
+			"name": "Top_Lid.as_Top_Lid.001",
+			"centre_box": "-0.02021217,0.1561584,0.02475003",
+			"subassemblyID": 2,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.3196373,
+				"miny": 0.1003418,
+				"minz": -0.1881351,
+				"maxx": 0.279213,
+				"maxy": 0.2119751,
+				"maxz": 0.2376352
+			}
+		},
+		{
+			"name": "Bearing__Sealing_.as_Bearing__Sealing_.001",
+			"centre_box": "-0.01984406,0.2775574,0.02511896",
+			"subassemblyID": 3,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.2297211,
+				"miny": 0.2143555,
+				"minz": -0.1877234,
+				"maxx": 0.190033,
+				"maxy": 0.3407593,
+				"maxz": 0.2379613
+			}
+		},
+		{
+			"name": "Main_Housing.kit_Main_Housing.001",
+			"centre_box": "-0.01964188,-0.136322,0.004875399",
+			"subassemblyID": 4,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.319191,
+				"miny": -0.3727417,
+				"minz": -0.2273748,
+				"maxx": 0.2799072,
+				"maxy": 0.1000977,
+				"maxz": 0.2371256
+			}
+		},
+		{
+			"name": "Fine_Screw__F.as_Solid1:16.002",
+			"centre_box": "-0.08686256,0.2635803,0.002062693",
+			"subassemblyID": 5,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.1377449,
+				"miny": 0.2553711,
+				"minz": -0.04883146,
+				"maxx": -0.03598022,
+				"maxy": 0.2717896,
+				"maxz": 0.05295685
+			}
+		},
+		{
+			"name": "Fine_Screw__M.as_Solid1:17.002",
+			"centre_box": "0.07607269,0.2635803,-0.001414493",
+			"subassemblyID": 6,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": 0.02518845,
+				"miny": 0.2553711,
+				"minz": -0.05230865,
+				"maxx": 0.1269569,
+				"maxy": 0.2717896,
+				"maxz": 0.04947966
+			}
+		},
+		{
+			"name": "Ball_Bearing_1.as_Solid1:11.002",
+			"centre_box": "-0.08768845,0.2348022,0.00199952",
+			"subassemblyID": 7,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.1582451,
+				"miny": 0.2124023,
+				"minz": -0.06894454,
+				"maxx": -0.01713181,
+				"maxy": 0.2572021,
+				"maxz": 0.07294358
+			}
+		},
+		{
+			"name": "Ball_Bearing_2.as_Solid1:3.002",
+			"centre_box": "0.07524681,0.2348022,-0.001479715",
+			"subassemblyID": 8,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": 0.004688263,
+				"miny": 0.2124023,
+				"minz": -0.07242581,
+				"maxx": 0.1458054,
+				"maxy": 0.2572021,
+				"maxz": 0.06946638
+			}
+		},
+		{
+			"name": "Large_Bolt_2.as_Solid1:14.002",
+			"centre_box": "-0.1345959,0.2151184,0.1816109",
+			"subassemblyID": 9,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.1608543,
+				"miny": 0.05615234,
+				"minz": 0.1553526,
+				"maxx": -0.1083374,
+				"maxy": 0.3740845,
+				"maxz": 0.2078692
+			}
+		},
+		{
+			"name": "Large_Bolt_1.as_Solid1:12.002",
+			"centre_box": "0.1082134,0.2151184,0.1762096",
+			"subassemblyID": 10,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": 0.08197021,
+				"miny": 0.05615234,
+				"minz": 0.1499635,
+				"maxx": 0.1344566,
+				"maxy": 0.3740845,
+				"maxz": 0.2024557
+			}
+		},
+		{
+			"name": "Large_Bolt_3.as_Solid1:13.002",
+			"centre_box": "-0.145174,0.2151184,-0.1424099",
+			"subassemblyID": 11,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.1714478,
+				"miny": 0.05615234,
+				"minz": -0.1686824,
+				"maxx": -0.1189003,
+				"maxy": 0.3740845,
+				"maxz": -0.1161373
+			}
+		},
+		{
+			"name": "Large_Bolt_4.as_Solid1:15.002",
+			"centre_box": "0.05643082,0.2146301,-0.14679",
+			"subassemblyID": 12,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": 0.03016663,
+				"miny": 0.05566406,
+				"minz": -0.1730564,
+				"maxx": 0.08269501,
+				"maxy": 0.3735962,
+				"maxz": -0.1205235
+			}
+		},
+		{
+			"name": "Bearing_Large.as_Solid1:5.002",
+			"centre_box": "-0.0869503,-0.2671509,-0.003200024",
+			"subassemblyID": 13,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.1514587,
+				"miny": -0.2997437,
+				"minz": -0.06806409,
+				"maxx": -0.02244186,
+				"maxy": -0.2345581,
+				"maxz": 0.06166404
+			}
+		},
+		{
+			"name": "Bearing_3.as_Solid1:4.002",
+			"centre_box": "0.07539558,-0.2731934,-0.002494805",
+			"subassemblyID": 14,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": 0.02096558,
+				"miny": -0.3057861,
+				"minz": -0.05722488,
+				"maxx": 0.1298256,
+				"maxy": -0.2406006,
+				"maxz": 0.05223528
+			}
+		},
+		{
+			"name": "Cap.as_Solid1:22.002",
+			"centre_box": "-0.08689499,-0.5015869,0.001997396",
+			"subassemblyID": 15,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.1295395,
+				"miny": -0.6259155,
+				"minz": -0.04284328,
+				"maxx": -0.04425049,
+				"maxy": -0.3772583,
+				"maxz": 0.04683807
+			}
+		},
+		{
+			"name": "Bearing_Inner_Small_3.as_Solid1:19.002",
+			"centre_box": "0.07602882,-0.2736816,-0.00148996",
+			"subassemblyID": 16,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": 0.03730392,
+				"miny": -0.3062744,
+				"minz": -0.03924377,
+				"maxx": 0.1147537,
+				"maxy": -0.2410889,
+				"maxz": 0.03626385
+			}
+		},
+		{
+			"name": "Inner_Bearing__Large_.as_Solid1:18.002",
+			"centre_box": "-0.08744621,-0.2736816,0.001997419",
+			"subassemblyID": 17,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.1358299,
+				"miny": -0.3062744,
+				"minz": -0.04665063,
+				"maxx": -0.0390625,
+				"maxy": -0.2410889,
+				"maxz": 0.05064547
+			}
+		},
+		{
+			"name": "Bearing_1.as_Solid1:9.002",
+			"centre_box": "-0.08566856,0.1802063,-0.001231059",
+			"subassemblyID": 18,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.1400986,
+				"miny": 0.147583,
+				"minz": -0.05596115,
+				"maxx": -0.03123856,
+				"maxy": 0.2128296,
+				"maxz": 0.05349903
+			}
+		},
+		{
+			"name": "Bearing_2.as_Solid1:10.002",
+			"centre_box": "0.07530212,0.1763916,-0.00256405",
+			"subassemblyID": 19,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": 0.02087021,
+				"miny": 0.1437988,
+				"minz": -0.05729413,
+				"maxx": 0.129734,
+				"maxy": 0.2089844,
+				"maxz": 0.05216603
+			}
+		},
+		{
+			"name": "Bearing_Inner_Small_1.as_Solid1:20.002",
+			"centre_box": "-0.08689499,0.175415,0.001997478",
+			"subassemblyID": 20,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.125618,
+				"miny": 0.1428223,
+				"minz": -0.03575838,
+				"maxx": -0.048172,
+				"maxy": 0.2080078,
+				"maxz": 0.03975333
+			}
+		},
+		{
+			"name": "Bearing_Inner_Small_2.as_Solid1:21.002",
+			"centre_box": "0.07604218,0.1763916,-0.001479723",
+			"subassemblyID": 21,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": 0.03731537,
+				"miny": 0.1437988,
+				"minz": -0.03923558,
+				"maxx": 0.114769,
+				"maxy": 0.2089844,
+				"maxz": 0.03627613
+			}
+		},
+		{
+			"name": "Sealing__Bearing_.as_Solid1:2.002",
+			"centre_box": "-0.08690643,-0.3638306,0.00199537",
+			"subassemblyID": 22,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.1276703,
+				"miny": -0.4107056,
+				"minz": -0.03774774,
+				"maxx": -0.04614258,
+				"maxy": -0.3169556,
+				"maxz": 0.04173848
+			}
+		},
+		{
+			"name": "Bolt_Short_1.as_Bolt_Short_1.001",
+			"centre_box": "-0.2787075,0.09634399,0.006715924",
+			"subassemblyID": 23,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": -0.3092384,
+				"miny": 0.00378418,
+				"minz": -0.0207123,
+				"maxx": -0.2481766,
+				"maxy": 0.1889038,
+				"maxz": 0.03414415
+			}
+		},
+		{
+			"name": "Bolt_Short_2.as_Bolt_Short_2.001",
+			"centre_box": "0.2387428,0.09634399,-0.004333228",
+			"subassemblyID": 24,
+			"parentID": 25,
+			"bounding_box":
+			{
+				"minx": 0.2102814,
+				"miny": 0.00378418,
+				"minz": -0.03459252,
+				"maxx": 0.2672043,
+				"maxy": 0.1889038,
+				"maxz": 0.02592607
+			}
+		},
+		{
+			"name": "compressor.obj",
+			"centre_box": "-0.01986504,-0.1259155,0.00529325",
+			"childrenIDs": "0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
+			"subassemblyID": 25,
+			"bounding_box":
+			{
+				"minx": -0.3196373,
+				"miny": -0.6259155,
+				"minz": -0.2273748,
+				"maxx": 0.2799072,
+				"maxy": 0.3740845,
+				"maxz": 0.2379613
+			}
+		}
+	],
+	"assembly composer":
+	[],
+	"steps":
+	[
+		{
+			"name": "Large Bolt 1.as Solid1:12.002",
+			"description": "Insert part 'Large_Bolt_1.as_Solid1:12.002' into the assembly",
+			"removal_direction": "-0.02,1,-0.01",
+			"preview_direction": "0,0,-1",
+			"isUserStep": "Automatic",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 10,
+			"removal_distance": 0.2957184,
+			"preview_scale": 3.845178
+		},
+		{
+			"name": "Large Bolt 2.as Solid1:14.002",
+			"description": "Insert part 'Large_Bolt_2.as_Solid1:14.002' into the assembly",
+			"removal_direction": "0.02,1,-0.01",
+			"preview_direction": "0,0,-1",
+			"isUserStep": "Automatic",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 9,
+			"removal_distance": 0.2955067,
+			"preview_scale": 3.845074
+		},
+		{
+			"name": "Large Bolt 3.as Solid1:13.002",
+			"description": "Insert part 'Large_Bolt_3.as_Solid1:13.002' into the assembly",
+			"removal_direction": "-0.01,1,-0.02",
+			"preview_direction": "0,0,-1",
+			"isUserStep": "Automatic",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 11,
+			"removal_distance": 0.2870751,
+			"preview_scale": 3.843771
+		},
+		{
+			"name": "Large Bolt 4.as Solid1:15.002",
+			"description": "Insert part 'Large_Bolt_4.as_Solid1:15.002' into the assembly",
+			"removal_direction": "-0.02,1,0.01",
+			"preview_direction": "0,0,-1",
+			"isUserStep": "Automatic",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 12,
+			"removal_distance": 0.2953799,
+			"preview_scale": 3.764222
+		},
+		{
+			"name": "Bearing  Sealing .as Bearing  Sealing .001",
+			"description": "Insert part 'Bearing__Sealing_.as_Bearing__Sealing_.001' into the assembly",
+			"removal_direction": "0,1,0",
+			"preview_direction": "0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Automatic",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 3,
+			"removal_distance": 0.07720947,
+			"preview_scale": 1.94841
+		},
+		{
+			"name": "Fine Screw  F.as Solid1:16.002",
+			"description": "Insert part 'Fine_Screw__F.as_Solid1:16.002' into the assembly",
+			"removal_direction": "0,1,0",
+			"preview_direction": "0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Automatic",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 5,
+			"removal_distance": 0.03619385,
+			"preview_scale": 8
+		},
+		{
+			"name": "Fine Screw  M.as Solid1:17.002",
+			"description": "Insert part 'Fine_Screw__M.as_Solid1:17.002' into the assembly",
+			"removal_direction": "0,1,0",
+			"preview_direction": "0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Automatic",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 6,
+			"removal_distance": 0.03448486,
+			"preview_scale": 8
+		},
+		{
+			"name": "Ball Bearing 2.as Solid1:3.002",
+			"description": "Insert part 'Ball_Bearing_2.as_Solid1:3.002' into the assembly",
+			"removal_direction": "0,1,0",
+			"preview_direction": "-0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Automatic",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 8,
+			"removal_distance": 0.0791626,
+			"preview_scale": 5.805627
+		},
+		{
+			"name": "Ball Bearing 1.as Solid1:11.002",
+			"description": "Insert part 'Ball_Bearing_1.as_Solid1:11.002' into the assembly",
+			"removal_direction": "0,1,0",
+			"preview_direction": "-0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Non-feasible",
+			"hierarchyID": 7,
+			"removal_distance": 0.0791626,
+			"preview_scale": 5.805781
+		},
+		{
+			"name": "Bolt Short 1.as Bolt Short 1.001",
+			"description": "Insert part 'Bolt_Short_1.as_Bolt_Short_1.001' into the assembly",
+			"removal_direction": "0,1,0",
+			"preview_direction": "0.5773503,-0.5773503,0.5773503",
+			"isUserStep": "Automatic",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 23,
+			"removal_distance": 0.2081909,
+			"preview_scale": 5.879303
+		},
+		{
+			"name": "Bolt Short 2.as Bolt Short 2.001",
+			"description": "Insert part 'Bolt_Short_2.as_Bolt_Short_2.001' into the assembly",
+			"removal_direction": "0,1,0",
+			"preview_direction": "-0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Automatic",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 24,
+			"removal_distance": 0.2081909,
+			"preview_scale": 5.867515
+		},
+		{
+			"name": "Bearing 1.as Solid1:9.002",
+			"description": "Insert part 'Bearing_1.as_Solid1:9.002' into the assembly",
+			"removal_direction": "-0.01,1,0",
+			"preview_direction": "-0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Non-feasible",
+			"hierarchyID": 18,
+			"removal_distance": 0.1456312,
+			"preview_scale": 7.103721
+		},
+		{
+			"name": "Bearing 2.as Solid1:10.002",
+			"description": "Insert part 'Bearing_2.as_Solid1:10.002' into the assembly",
+			"removal_direction": "0,1,0",
+			"preview_direction": "-0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Non-feasible",
+			"hierarchyID": 19,
+			"removal_distance": 0.1477661,
+			"preview_scale": 7.104623
+		},
+		{
+			"name": "Bearing Inner Small 1.as Solid1:20.002",
+			"description": "Insert part 'Bearing_Inner_Small_1.as_Solid1:20.002' into the assembly",
+			"removal_direction": "0,1,0",
+			"preview_direction": "-0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Non-feasible",
+			"hierarchyID": 20,
+			"removal_distance": 0.1487427,
+			"preview_scale": 8
+		},
+		{
+			"name": "Bearing Inner Small 2.as Solid1:21.002",
+			"description": "Insert part 'Bearing_Inner_Small_2.as_Solid1:21.002' into the assembly",
+			"removal_direction": "0,1,0",
+			"preview_direction": "-0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Non-feasible",
+			"hierarchyID": 21,
+			"removal_distance": 0.1460571,
+			"preview_scale": 8
+		},
+		{
+			"name": "Top Lid.as Top Lid.001",
+			"description": "Insert part 'Top_Lid.as_Top_Lid.001' into the assembly",
+			"removal_direction": "0,1,-0.02",
+			"preview_direction": "-0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 2,
+			"removal_distance": 0.1980965,
+			"preview_scale": 1.601356
+		},
+		{
+			"name": "Cap.as Solid1:22.002",
+			"description": "Insert part 'Cap.as_Solid1:22.002' into the assembly",
+			"removal_direction": "0,-1,0",
+			"preview_direction": "-0.5773503,0.5773503,-0.5773503",
+			"isUserStep": "Automatic",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 15,
+			"removal_distance": 0.1342163,
+			"preview_scale": 3.975938
+		},
+		{
+			"name": "Sealing  Bearing .as Solid1:2.002",
+			"description": "Insert part 'Sealing__Bearing_.as_Solid1:2.002' into the assembly",
+			"removal_direction": "0,-1,-0.01",
+			"preview_direction": "-0.5773503,0.5773503,-0.5773503",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Non-feasible",
+			"hierarchyID": 22,
+			"removal_distance": 0.1960068,
+			"preview_scale": 7.487412
+		},
+		{
+			"name": "Rotor  Male .as Solid1:1.002",
+			"description": "Insert part 'Rotor__Male_.as_Solid1:1.002' into the assembly",
+			"removal_direction": "0.01,0.99,-0.16",
+			"preview_direction": "0.7071068,0,0.7071068",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Non-feasible",
+			"hierarchyID": 0,
+			"removal_distance": 0.8271862,
+			"preview_scale": 1.16909
+		},
+		{
+			"name": "Rotor  Female .as Solid1:6.002",
+			"description": "Insert part 'Rotor__Female_.as_Solid1:6.002' into the assembly",
+			"removal_direction": "0.02,1,0.08",
+			"preview_direction": "0.7071068,0,0.7071068",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Non-feasible",
+			"hierarchyID": 1,
+			"removal_distance": 0.4409907,
+			"preview_scale": 1.369601
+		},
+		{
+			"name": "Bearing Large.as Solid1:5.002",
+			"description": "Insert part 'Bearing_Large.as_Solid1:5.002' into the assembly",
+			"removal_direction": "0,1,0",
+			"preview_direction": "-0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 13,
+			"removal_distance": 0.3998413,
+			"preview_scale": 4.600054
+		},
+		{
+			"name": "Bearing 3.as Solid1:4.002",
+			"description": "Insert part 'Bearing_3.as_Solid1:4.002' into the assembly",
+			"removal_direction": "0,1,0",
+			"preview_direction": "-0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 14,
+			"removal_distance": 0.4058838,
+			"preview_scale": 5.331673
+		},
+		{
+			"name": "Inner Bearing  Large .as Solid1:18.002",
+			"description": "Insert part 'Inner_Bearing__Large_.as_Solid1:18.002' into the assembly",
+			"removal_direction": "-0.02,1,0",
+			"preview_direction": "0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 17,
+			"removal_distance": 0.4118923,
+			"preview_scale": 5.881077
+		},
+		{
+			"name": "Bearing Inner Small 3.as Solid1:19.002",
+			"description": "Insert part 'Bearing_Inner_Small_3.as_Solid1:19.002' into the assembly",
+			"removal_direction": "0,1,0",
+			"preview_direction": "-0.5773503,-0.5773503,-0.5773503",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 16,
+			"removal_distance": 0.4063721,
+			"preview_scale": 7.074636
+		},
+		{
+			"name": "Main Housing.kit Main Housing.001",
+			"description": "Insert part 'Main_Housing.kit_Main_Housing.001' into the assembly",
+			"removal_direction": "0,-1,-0.01",
+			"preview_direction": "0,0,1",
+			"isUserStep": "Manual",
+			"isUserView": "Automatic",
+			"isStepFeasible": "Feasible",
+			"hierarchyID": 4,
+			"removal_distance": 0,
+			"preview_scale": 1
+		}
+	]
+}

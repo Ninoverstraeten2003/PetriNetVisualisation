@@ -5,10 +5,10 @@ interface AssemblyStep {
   removed_part_name: string;
   hierarchyID: number;
   move_distance: number;
-  move_direction: [number, number, number];
-  final_position_in_assembly: [number, number, number];
+  move_direction: number[];
+  final_position_in_assembly: number[];
 }
 
-interface AssemblySequence {
+export interface AssemblySequence {
   steps: AssemblyStep[];
 }
